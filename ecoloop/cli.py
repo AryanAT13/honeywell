@@ -39,7 +39,7 @@ def info(model: Path = config.DEFAULT_MODEL) -> None:
 def run(
     label: str = "baseline",
     model: Path = config.DEFAULT_MODEL,
-    weather: Path = config.DEFAULT_WEATHER,
+    weather: str = "chicago",
     period: str = "smoke",
     timesteps_per_hour: int = 6,
 ) -> None:
@@ -47,7 +47,7 @@ def run(
     spec = RunSpec(
         label=label,
         model=model,
-        weather=weather,
+        weather=config.CLIMATES.get(weather, Path(weather)),
         run_period=RunPeriod.parse(config.PERIODS.get(period, period)),
         timesteps_per_hour=timesteps_per_hour,
         output_dir=config.RUNS / label,
@@ -75,7 +75,7 @@ def run(
 def compare(
     arms: str = "baseline,deadband",
     model: Path = config.DEFAULT_MODEL,
-    weather: Path = config.DEFAULT_WEATHER,
+    weather: str = "chicago",
     period: str = "summer",
     timesteps_per_hour: int = 6,
 ) -> None:
@@ -89,7 +89,7 @@ def compare(
     results = experiment.run_arms(
         selected,
         model=model,
-        weather=weather,
+        weather=config.CLIMATES.get(weather, Path(weather)),
         period=RunPeriod.parse(config.PERIODS.get(period, period)),
         timesteps_per_hour=timesteps_per_hour,
     )

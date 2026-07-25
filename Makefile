@@ -23,7 +23,7 @@ baseline:
 	@$(ECOLOOP) run --label baseline_annual --period annual
 
 compare:
-	@$(ECOLOOP) compare --arms baseline,deadband --period summer
+	@$(ECOLOOP) compare --arms baseline,deadband,supervisor --period annual
 
 test:
 	@.venv/bin/pytest -q

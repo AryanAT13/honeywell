@@ -18,18 +18,32 @@ from pydantic import BaseModel
 
 from . import config, runner
 from .contracts import RunPeriod, RunResult, RunSpec
-from .control import Controller, DeadbandOffset
+from .policy import Band
+from .strategies import FixedBand, PolicyAuthor, SupplyAirReset
 
 
 @dataclass(frozen=True)
 class Arm:
     label: str
-    controller: Controller | None = None
+    author: PolicyAuthor | None = None
+    guarded: bool = True
 
 
 ARMS: dict[str, Arm] = {
+    # B0: the stock model, untouched.
     "baseline": Arm("baseline"),
-    "deadband": Arm("deadband", DeadbandOffset(heating=-0.5, cooling=0.5)),
+    # B1: the obvious move, widening the occupied band. Unguarded, or there would be nothing
+    # left of it to measure.
+    "deadband": Arm(
+        "deadband",
+        FixedBand(
+            occupied=Band(heating=20.5, cooling=24.5),
+            unoccupied=Band(heating=15.6, cooling=26.7),
+        ),
+        guarded=False,
+    ),
+    # B2: supervisory supply air reset, thermostats left alone.
+    "supervisor": Arm("supervisor", SupplyAirReset()),
 }
 
 
@@ -53,9 +67,9 @@ class Comparison(BaseModel):
     arms: list[ArmComparison]
 
 
-def _execute(job: tuple[RunSpec, Controller | None]) -> RunResult:
-    spec, controller = job
-    return runner.run(spec, controller)
+def _execute(job: tuple[RunSpec, Arm]) -> RunResult:
+    spec, arm = job
+    return runner.run(spec, arm.author, guarded=arm.guarded)
 
 
 def run_arms(
@@ -78,7 +92,7 @@ def run_arms(
                 timesteps_per_hour=timesteps_per_hour,
                 output_dir=root / arm.label,
             ),
-            arm.controller,
+            arm,
         )
         for arm in arms
     ]

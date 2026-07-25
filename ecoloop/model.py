@@ -76,6 +76,33 @@ def zones(model: Model) -> list[str]:
     return sorted(model.get("Zone", {}))
 
 
+def air_loop_supply_nodes(model: Model) -> list[str]:
+    """Each air loop's supply outlet node, where supply air temperature is set."""
+    return sorted(
+        fields["supply_side_outlet_node_names"]
+        for fields in model.get("AirLoopHVAC", {}).values()
+        if fields.get("supply_side_outlet_node_names")
+    )
+
+
+def supply_air_schedules(model: Model) -> list[str]:
+    """Schedules driving supply air temperature on the air loops.
+
+    The schedule is the correct handle, not the supply node. Mixed air managers derive the
+    cooling coil's setpoint from the supply node during the same timestep, so overriding that
+    node afterwards changes the reported setpoint and nothing else.
+    """
+    nodes = set(air_loop_supply_nodes(model))
+    return sorted(
+        {
+            fields["schedule_name"]
+            for fields in model.get("SetpointManager:Scheduled", {}).values()
+            if fields.get("control_variable") == "Temperature"
+            and fields.get("setpoint_node_or_nodelist_name") in nodes
+        }
+    )
+
+
 def _thermostat_targets(model: Model) -> list[tuple[dict, list[str]]]:
     """Each thermostat paired with the zones it governs, with zone lists expanded."""
     lists = {

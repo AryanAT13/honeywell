@@ -7,7 +7,6 @@ here reasons about the model; that arrives in later phases.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Protocol
 
 HEATING_ACTUATOR = ("Zone Temperature Control", "Heating Setpoint")
 COOLING_ACTUATOR = ("Zone Temperature Control", "Cooling Setpoint")
@@ -28,29 +27,6 @@ class ZoneObservation:
     occupancy: float
     scheduled: Setpoints
     outdoor_temperature: float
-
-
-class Controller(Protocol):
-    def __call__(self, observation: ZoneObservation) -> Setpoints | None:
-        """Return None to leave the zone on its native schedule."""
-
-
-@dataclass(frozen=True)
-class DeadbandOffset:
-    """Widens the deadband while a zone is occupied, and leaves setback periods alone.
-
-    The Phase 1 reference controller: enough to move energy measurably and to prove the
-    write path, deliberately not enough to be clever.
-    """
-
-    heating: float = -0.5
-    cooling: float = 0.5
-
-    def __call__(self, observation: ZoneObservation) -> Setpoints | None:
-        if observation.occupancy <= 0:
-            return None
-        scheduled = observation.scheduled
-        return Setpoints(scheduled.heating + self.heating, scheduled.cooling + self.cooling)
 
 
 class SetpointActuators:
@@ -80,3 +56,29 @@ class SetpointActuators:
         """Hand a zone back to its schedule. Overrides otherwise risk latching."""
         self.ex.reset_actuator(state, self.handles[(zone, "heating")])
         self.ex.reset_actuator(state, self.handles[(zone, "cooling")])
+
+
+class SupplyAirActuators:
+    """Resets supply air temperature by overriding the schedules the setpoint managers read.
+
+    Written before the managers run, so the model's own manager chain propagates the change
+    down to the coils.
+    """
+
+    def __init__(self, exchange, schedules: list[str]):
+        self.ex = exchange
+        self.schedules = schedules
+        self.handles: dict[str, int] = {}
+
+    def resolve(self, state) -> None:
+        for schedule in self.schedules:
+            handle = self.ex.get_actuator_handle(
+                state, "Schedule:Compact", "Schedule Value", schedule
+            )
+            if handle < 0:
+                raise RuntimeError(f"no schedule actuator for {schedule}")
+            self.handles[schedule] = handle
+
+    def write(self, state, temperature: float) -> None:
+        for handle in self.handles.values():
+            self.ex.set_actuator_value(state, handle, temperature)
