@@ -11,10 +11,10 @@ is a solved problem that reaches under 5% of buildings, because every deployment
 of engineering time to map points, build a model and tune a strategy. The LLM's job here is to
 remove that cost — not to replace the controller.
 
-**Status: Phase 2 complete.** A deterministic supervisory controller runs in closed loop
+**Status: Phase 3 complete.** A deterministic supervisory controller runs in closed loop
 against the live simulation and saves 5.3% of annual electricity and 8.7% of peak with
-comfort held. Every command passes a guardian that clamps it into the comfort contract. No
-agent yet — this is the bar the agent has to beat.
+comfort held, and the whole capability layer is exposed over MCP, so an external client can
+propose a policy and get it scored. No LLM yet — this is the bar the agent has to beat.
 
 ## Requirements
 
@@ -46,6 +46,8 @@ Runs a 3-day simulation of the baseline model and prints its KPIs.
 | `make smoke` | 3-day baseline run (~1 s) |
 | `make baseline` | Annual baseline run (~14 s) |
 | `make compare` | All three arms over a full year (~35 s) |
+| `make serve` | Serve the capability layer over MCP on stdio |
+| `make inspector` | Open the MCP Inspector against the server |
 | `make test` | Test suite, including real simulations |
 | `make lint` | ruff check and format |
 
@@ -122,10 +124,51 @@ Delhi weather the same controller returns 0.59% over a year, against 5.33% in Ch
 because Delhi sits above its outdoor ceiling almost all year. Choosing the right measure per
 building and per climate is the engineering cost the agent exists to remove.
 
+## MCP interface
+
+Capabilities are defined once in `ecoloop/tools.py` as plain functions over pydantic models,
+with no MCP import. The in-process agent calls them directly — routing per-decision calls
+back out over stdio would add IPC latency to the run's bottleneck and cross no trust
+boundary. `ecoloop/mcp_server.py` registers the same functions for external clients, so the
+protocol surface cannot drift from what the agent uses.
+See [ADR 0006](docs/adr/0006-one-capability-layer-two-surfaces.md).
+
+| tool | |
+| --- | --- |
+| `list_models`, `list_climates`, `list_runs` | what is available |
+| `inspect_model` | a model's control surface: conditioned zones, schedules, air loops |
+| `run_kpis`, `run_errors` | headline numbers, and warning/severe/fatal counts |
+| `telemetry` | a downsampled window; the full frame is never returned |
+| `state_digest` | the situation report as a policy author saw it at a given moment |
+| `check_policy` | project a policy onto the safe envelope without running anything |
+| `evaluate_policy` | run a policy against the simulation and score it against the baseline |
+| `compare_arms` | run named arms over identical weather and compare pairwise |
+
+`evaluate_policy` is what makes the server more than an inspection panel: an external model
+can propose, run, read the score and propose again without touching this codebase. Baselines
+are cached per model, weather and window, so an evaluation costs one simulation — 1–2 s for a
+week, 14 s for a year.
+
+Both transports work. `ecoloop serve` speaks stdio; `ecoloop serve --http` speaks streamable
+HTTP on port 8000. To attach a desktop client, add to its MCP config:
+
+```json
+{
+  "mcpServers": {
+    "ecoloop": {
+      "command": "/absolute/path/to/repo/.venv/bin/ecoloop",
+      "args": ["serve"]
+    }
+  }
+}
+```
+
 ## Layout
 
 ```
 ecoloop/
+  tools.py       the capability layer: what anything reasoning about the building may do
+  mcp_server.py  MCP registration over tools.py, and nothing else
   eplus.py       locate the pinned EnergyPlus install, expose its Python API
   model.py       epJSON load/save/mutate; IDF conversion; control surface discovery
   runner.py      run a simulation under optional control, record per-timestep telemetry
@@ -170,6 +213,9 @@ Two more that are silent rather than loud:
 Setpoint overrides are released explicitly when a controller declines to command a zone,
 rather than relying on EnergyPlus to revert them.
 
+Nothing may be written to stdout while serving MCP over stdio, since that stream carries the
+protocol. EnergyPlus console output is disabled on every run for this reason among others.
+
 Arms run in separate processes and are aligned on their shared time index, which is asserted
 to be identical. Since arms never interact, that gives the property a lockstep comparison
 needs; running them concurrently would only change the wall clock.
@@ -191,8 +237,8 @@ from climate.onebuilding.org; its licence is committed alongside it.
 | 0 | Simulation harness, telemetry, KPIs, CI | done |
 | 1 | Closed loop: live actuator writes, paired baseline twin | done |
 | 2 | Deterministic controller, safety guardian, state digest | done |
-| 3 | MCP server | next |
-| 4 | LLM cognition: strategy, reflection, self-repair | |
+| 3 | MCP server | done |
+| 4 | LLM cognition: strategy, reflection, self-repair | next |
 | 5 | Self-commissioning onto unseen models, fault injection | |
 | 6 | Ablation ladder, dashboard, report | |
 | 7 | Packaging and delivery | |
