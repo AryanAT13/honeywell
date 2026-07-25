@@ -67,5 +67,5 @@ def test_telemetry_excludes_sizing_periods(result):
 
     df = pd.read_parquet(result.telemetry)
     assert df["time"].dt.month.eq(7).all()
-    assert df["time"].is_monotonic_increasing
+    assert df["time"].diff().dropna().nunique() == 1
     assert not df.filter(like="|temp").isna().any().any()
