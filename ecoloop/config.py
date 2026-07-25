@@ -10,7 +10,12 @@ WEATHER = ROOT / "weather"
 RUNS = ROOT / "runs"
 
 DEFAULT_MODEL = MODELS / "RefBldgMediumOfficeNew2004_Chicago.idf"
-DEFAULT_WEATHER = WEATHER / "USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw"
+
+CLIMATES = {
+    "chicago": WEATHER / "USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw",
+    "delhi": WEATHER / "IND_DL_New.Delhi-Safdarjung.AP.421820_ISHRAE2014.epw",
+}
+DEFAULT_WEATHER = CLIMATES["chicago"]
 
 # Short shared windows so every arm is compared over identical weather.
 PERIODS = {
