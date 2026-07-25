@@ -11,8 +11,9 @@ is a solved problem that reaches under 5% of buildings, because every deployment
 of engineering time to map points, build a model and tune a strategy. The LLM's job here is to
 remove that cost — not to replace the controller.
 
-**Status: Phase 0 complete.** The simulation harness runs and its telemetry is verified
-against EnergyPlus's own energy accounting. No control or agent code yet.
+**Status: Phase 1 complete.** The loop is closed — a controller reads zone state and writes
+thermostat setpoints into the running instance every timestep, and arms are compared against
+a paired baseline on an identical clock. The controller is a fixed rule; no agent yet.
 
 ## Requirements
 
@@ -43,12 +44,13 @@ Runs a 3-day simulation of the baseline model and prints its KPIs.
 | `make info` | Report the EnergyPlus install and a model's conditioned zones |
 | `make smoke` | 3-day baseline run (~1 s) |
 | `make baseline` | Annual baseline run (~14 s) |
-| `make test` | Test suite, including a real simulation |
+| `make compare` | Baseline against a controlled arm over a summer week |
+| `make test` | Test suite, including real simulations |
 | `make lint` | ruff check and format |
 
 `ecoloop run` takes `--model`, `--weather`, `--period` and `--timesteps-per-hour`.
 `--period` accepts a named window (`smoke`, `summer`, `winter`, `shoulder`, `annual`)
-or an explicit `MM-DD:MM-DD` range.
+or an explicit `MM-DD:MM-DD` range. `ecoloop compare` additionally takes `--arms`.
 
 ## Baseline
 
@@ -72,13 +74,40 @@ thermostat deadband change.
 The baseline already meets its setpoints, so 56 unmet hours is a ceiling the agent must not
 exceed, not a budget to spend.
 
+## Measuring comfort
+
+Comfort is reported two ways, because the obvious metric is one the controller can move.
+
+*Unmet hours* are occupied time outside the thermostat's throttling range — measured against
+whatever setpoint is currently commanded. It answers whether the plant delivered what it was
+asked for, and a controller that widens its own deadband improves its own score.
+
+*Comfort excursion* is occupied time outside a fixed 21–24 °C band taken from the baseline's
+occupied setpoints, reported as hours and as degree-hours. The controller cannot move it.
+
+The difference is not theoretical. Widening the occupied deadband by 0.5 K over a summer week:
+
+| | kWh | peak kW | unmet h | outside h | degree-hours |
+| --- | --- | --- | --- | --- | --- |
+| baseline | 17,108.7 | 219.4 | 6.00 | 10.83 | 25.7 |
+| +0.5 K deadband | 16,853.8 (−1.49%) | 212.9 (−2.95%) | 4.50 | 99.00 | 55.3 |
+
+Unmet hours *improved*. Occupants were worse off for twice as long. This is the trade the
+brief is asking whether the agent makes, and it is why the Phase 2 guardian clamps against
+the fixed band. See [ADR 0004](docs/adr/0004-comfort-scored-against-a-fixed-band.md).
+
+It is also the second piece of evidence that deadband widening is the wrong lever here: 1.5%
+energy for double the discomfort, against reheat at 18.5% of building electricity.
+
 ## Layout
 
 ```
 ecoloop/
   eplus.py       locate the pinned EnergyPlus install, expose its Python API
-  model.py       epJSON load/save/mutate; IDF conversion
-  runner.py      run a simulation, record per-timestep telemetry via runtime callbacks
+  model.py       epJSON load/save/mutate; IDF conversion; control surface discovery
+  runner.py      run a simulation under optional control, record per-timestep telemetry
+  control.py     what a controller sees, what it may command, how it is written
+  experiment.py  run arms over identical weather and compare them pairwise
   kpi.py         telemetry frame -> comparable headline numbers
   errors.py      structured reading of eplusout.err
   contracts.py   pydantic types spoken at every module boundary
@@ -102,9 +131,22 @@ produces silently wrong results rather than an error if you miss it:
   `warmup_flag` alone is not enough; design days are separate environments and are
   excluded via `kind_of_sim`.
 
-`Electricity:Facility` has no API handle in EnergyPlus 26.1 despite being listed as
-available. Meters are resolved from a candidate list, and a missing required meter raises
-rather than reporting zero.
+Two more that are silent rather than loud:
+
+- `minutes()` and `current_time()` report the *system* timestep, which subdivides adaptively
+  when the HVAC struggles to converge. Timestamps built from them are irregular and differ
+  between arms on the same clock, which breaks any paired comparison. `zone_time_step_number`
+  is the uniform one.
+- `Electricity:Facility` has no API handle in 26.1 despite being listed as available. Meters
+  resolve from a candidate list, and a missing required meter raises rather than reporting
+  zero.
+
+Setpoint overrides are released explicitly when a controller declines to command a zone,
+rather than relying on EnergyPlus to revert them.
+
+Arms run in separate processes and are aligned on their shared time index, which is asserted
+to be identical. Since arms never interact, that gives the property a lockstep comparison
+needs; running them concurrently would only change the wall clock.
 
 Provenance: the baseline models and weather file are copied unmodified from the EnergyPlus
 26.1.0 distribution (`ExampleFiles/`, `WeatherData/`) and are committed so runs are
@@ -115,8 +157,8 @@ reproducible without a matching local install.
 | Phase | | |
 | --- | --- | --- |
 | 0 | Simulation harness, telemetry, KPIs, CI | done |
-| 1 | Closed loop: live actuator writes, lockstep baseline twin | next |
-| 2 | Deterministic controller, safety guardian, state digest | |
+| 1 | Closed loop: live actuator writes, paired baseline twin | done |
+| 2 | Deterministic controller, safety guardian, state digest | next |
 | 3 | MCP server | |
 | 4 | LLM cognition: strategy, reflection, self-repair | |
 | 5 | Self-commissioning onto unseen models, fault injection | |
