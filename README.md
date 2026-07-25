@@ -11,9 +11,10 @@ is a solved problem that reaches under 5% of buildings, because every deployment
 of engineering time to map points, build a model and tune a strategy. The LLM's job here is to
 remove that cost — not to replace the controller.
 
-**Status: Phase 1 complete.** The loop is closed — a controller reads zone state and writes
-thermostat setpoints into the running instance every timestep, and arms are compared against
-a paired baseline on an identical clock. The controller is a fixed rule; no agent yet.
+**Status: Phase 2 complete.** A deterministic supervisory controller runs in closed loop
+against the live simulation and saves 5.3% of annual electricity and 8.7% of peak with
+comfort held. Every command passes a guardian that clamps it into the comfort contract. No
+agent yet — this is the bar the agent has to beat.
 
 ## Requirements
 
@@ -44,13 +45,15 @@ Runs a 3-day simulation of the baseline model and prints its KPIs.
 | `make info` | Report the EnergyPlus install and a model's conditioned zones |
 | `make smoke` | 3-day baseline run (~1 s) |
 | `make baseline` | Annual baseline run (~14 s) |
-| `make compare` | Baseline against a controlled arm over a summer week |
+| `make compare` | All three arms over a full year (~35 s) |
 | `make test` | Test suite, including real simulations |
 | `make lint` | ruff check and format |
 
-`ecoloop run` takes `--model`, `--weather`, `--period` and `--timesteps-per-hour`.
-`--period` accepts a named window (`smoke`, `summer`, `winter`, `shoulder`, `annual`)
-or an explicit `MM-DD:MM-DD` range. `ecoloop compare` additionally takes `--arms`.
+`ecoloop run` and `ecoloop compare` take `--model`, `--weather`, `--period` and
+`--timesteps-per-hour`. `--period` accepts a named window (`smoke`, `summer`, `winter`,
+`shoulder`, `annual`) or an explicit `MM-DD:MM-DD` range. `--weather` accepts `chicago`,
+`delhi`, or a path to any EPW. `ecoloop compare` additionally takes `--arms`, chosen from
+`baseline`, `deadband` and `supervisor`.
 
 ## Baseline
 
@@ -85,19 +88,39 @@ asked for, and a controller that widens its own deadband improves its own score.
 *Comfort excursion* is occupied time outside a fixed 21–24 °C band taken from the baseline's
 occupied setpoints, reported as hours and as degree-hours. The controller cannot move it.
 
-The difference is not theoretical. Widening the occupied deadband by 0.5 K over a summer week:
+The failure mode is not subtle: a controller holding a zone at 29 °C while commanding a 30 °C
+setpoint reports *zero* unmet hours. `tests/test_kpi.py` pins that down.
 
-| | kWh | peak kW | unmet h | outside h | degree-hours |
+Every policy therefore passes a guardian that clamps occupied setpoints back inside the
+contract before they reach the instance, so widening the band is not available as a way to
+buy energy. See [ADR 0004](docs/adr/0004-comfort-scored-against-a-fixed-band.md).
+
+## Results
+
+Full year, Chicago, against the stock model on an identical clock:
+
+| arm | kWh | peak kW | unmet h | outside band h | degree-hours |
 | --- | --- | --- | --- | --- | --- |
-| baseline | 17,108.7 | 219.4 | 6.00 | 10.83 | 25.7 |
-| +0.5 K deadband | 16,853.8 (−1.49%) | 212.9 (−2.95%) | 4.50 | 99.00 | 55.3 |
+| baseline | 767,959 | 344.9 | 56.0 | 507 | 1,030 |
+| deadband, unguarded | 761,115 (−0.89%) | 340.4 (−1.31%) | 231.3 | 4,891 | 1,715 (+67%) |
+| **supervisor** | **727,003 (−5.33%)** | **315.1 (−8.66%)** | **51.5** | 514 | 1,037 (+0.7%) |
 
-Unmet hours *improved*. Occupants were worse off for twice as long. This is the trade the
-brief is asking whether the agent makes, and it is why the Phase 2 guardian clamps against
-the fixed band. See [ADR 0004](docs/adr/0004-comfort-scored-against-a-fixed-band.md).
+The supervisor resets supply air temperature and never touches a thermostat. It returns six
+times the energy of the naive deadband arm for a hundredth of the comfort cost, and lowers
+unmet hours below baseline while doing it.
 
-It is also the second piece of evidence that deadband widening is the wrong lever here: 1.5%
-energy for double the discomfort, against reheat at 18.5% of building electricity.
+Two findings shaped that controller, and both were measured rather than assumed. The
+correction has to be driven by the single worst zone — two core zones caused 115 of the 128
+degree-hours of shoulder-season damage against ≤1.8 for any perimeter zone. And it has to be
+clamped against integral windup, which otherwise turned an 11.02% saving into 0.17%.
+
+What it cannot do is also recorded. Strict comfort non-degradation is unreachable reactively,
+because shoulder-season core overheating is driven by gains that are predictable hours ahead;
+the energy-comfort frontier is mapped in
+[ADR 0005](docs/adr/0005-supply-air-reset-as-the-first-measure.md). And run unchanged on New
+Delhi weather the same controller returns 0.59% over a year, against 5.33% in Chicago,
+because Delhi sits above its outdoor ceiling almost all year. Choosing the right measure per
+building and per climate is the engineering cost the agent exists to remove.
 
 ## Layout
 
@@ -107,6 +130,9 @@ ecoloop/
   model.py       epJSON load/save/mutate; IDF conversion; control surface discovery
   runner.py      run a simulation under optional control, record per-timestep telemetry
   control.py     what a controller sees, what it may command, how it is written
+  policy.py      the control plan, the guardian that bounds it, how it becomes commands
+  digest.py      the fixed-size situation report a policy author reasons over
+  strategies.py  policy authors; the LLM becomes another one in Phase 4
   experiment.py  run arms over identical weather and compare them pairwise
   kpi.py         telemetry frame -> comparable headline numbers
   errors.py      structured reading of eplusout.err
@@ -148,9 +174,15 @@ Arms run in separate processes and are aligned on their shared time index, which
 to be identical. Since arms never interact, that gives the property a lockstep comparison
 needs; running them concurrently would only change the wall clock.
 
-Provenance: the baseline models and weather file are copied unmodified from the EnergyPlus
-26.1.0 distribution (`ExampleFiles/`, `WeatherData/`) and are committed so runs are
-reproducible without a matching local install.
+Supply air temperature is reset by overriding the schedule the setpoint managers read, not
+the supply node. Mixed air managers derive the cooling coil's setpoint from the supply node
+within the same timestep, so overriding that node afterwards moves the reported setpoint and
+changes nothing else — an override that looks like it worked and does not.
+
+Provenance: the baseline models and the Chicago weather file are copied unmodified from the
+EnergyPlus 26.1.0 distribution (`ExampleFiles/`, `WeatherData/`) and are committed so runs
+are reproducible without a matching local install. The New Delhi file is ISHRAE 2014 data
+from climate.onebuilding.org; its licence is committed alongside it.
 
 ## Roadmap
 
@@ -158,8 +190,8 @@ reproducible without a matching local install.
 | --- | --- | --- |
 | 0 | Simulation harness, telemetry, KPIs, CI | done |
 | 1 | Closed loop: live actuator writes, paired baseline twin | done |
-| 2 | Deterministic controller, safety guardian, state digest | next |
-| 3 | MCP server | |
+| 2 | Deterministic controller, safety guardian, state digest | done |
+| 3 | MCP server | next |
 | 4 | LLM cognition: strategy, reflection, self-repair | |
 | 5 | Self-commissioning onto unseen models, fault injection | |
 | 6 | Ablation ladder, dashboard, report | |
