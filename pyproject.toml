@@ -8,6 +8,7 @@ dependencies = [
     "pandas>=2.2",
     "pyarrow>=16.0",
     "typer>=0.12",
+    "mcp>=1.2",
 ]
 
 [project.optional-dependencies]

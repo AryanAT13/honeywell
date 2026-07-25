@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from typing import Protocol
 
 from .digest import StateDigest
-from .policy import Band, Policy
+from .policy import Policy
 
 
 class PolicyAuthor(Protocol):
@@ -14,14 +14,13 @@ class PolicyAuthor(Protocol):
 
 
 @dataclass
-class FixedBand:
-    """Holds constant setpoint bands. The naive arm."""
+class Fixed:
+    """Holds one policy for the whole run, whoever wrote it."""
 
-    occupied: Band
-    unoccupied: Band
+    policy: Policy
 
     def __call__(self, digest: StateDigest) -> Policy:
-        return Policy(occupied=self.occupied, unoccupied=self.unoccupied, reason="fixed band")
+        return self.policy
 
 
 @dataclass
