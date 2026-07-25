@@ -31,6 +31,19 @@ class RunPeriod(BaseModel):
         )
 
 
+class ComfortBand(BaseModel):
+    """The occupied comfort contract, defaulting to the baseline model's own setpoints.
+
+    Comfort is scored against this fixed band rather than against whatever setpoint the
+    controller happens to be commanding, which a controller could otherwise widen to make
+    its own comfort record look perfect.
+    """
+
+    lower: float = 21.0
+    upper: float = 24.0
+    tolerance: float = 0.2
+
+
 class RunSpec(BaseModel):
     """Everything needed to reproduce one simulation."""
 
@@ -40,6 +53,7 @@ class RunSpec(BaseModel):
     run_period: RunPeriod
     timesteps_per_hour: int = 6
     output_dir: Path
+    comfort_band: ComfortBand = ComfortBand()
 
     @field_validator("timesteps_per_hour")
     @classmethod
@@ -67,8 +81,14 @@ class KpiSummary(BaseModel):
     peak_demand_kw: float
     peak_demand_at: datetime | None = None
 
+    # Whether the plant delivered the setpoint it was given.
     unmet_heating_hours: float
     unmet_cooling_hours: float
+
+    # Whether occupants were actually comfortable, against a band the controller cannot move.
+    comfort_band: ComfortBand
+    comfort_exceedance_hours: float
+    comfort_degree_hours: float
 
     @property
     def unmet_hours(self) -> float:

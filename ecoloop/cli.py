@@ -6,7 +6,7 @@ from pathlib import Path
 
 import typer
 
-from . import config, eplus, runner
+from . import config, eplus, experiment, runner
 from . import model as model_io
 from .contracts import RunPeriod, RunSpec
 
@@ -69,6 +69,61 @@ def run(
     )
     typer.echo(f"  severe errors   {result.severe_errors:10d}")
     typer.echo(f"\nwrote {result.telemetry}")
+
+
+@app.command()
+def compare(
+    arms: str = "baseline,deadband",
+    model: Path = config.DEFAULT_MODEL,
+    weather: Path = config.DEFAULT_WEATHER,
+    period: str = "summer",
+    timesteps_per_hour: int = 6,
+) -> None:
+    """Run control arms over identical weather and report paired differences."""
+    try:
+        selected = [experiment.ARMS[name] for name in arms.split(",")]
+    except KeyError as unknown:
+        typer.echo(f"unknown arm {unknown}; available: {', '.join(experiment.ARMS)}")
+        raise typer.Exit(1) from None
+
+    results = experiment.run_arms(
+        selected,
+        model=model,
+        weather=weather,
+        period=RunPeriod.parse(config.PERIODS.get(period, period)),
+        timesteps_per_hour=timesteps_per_hour,
+    )
+    report = experiment.compare(results)
+    frame = experiment.paired_frame(results)
+
+    config.RUNS.mkdir(parents=True, exist_ok=True)
+    (config.RUNS / "comparison.json").write_text(report.model_dump_json(indent=2))
+    frame.to_parquet(config.RUNS / "comparison.parquet", index=False)
+
+    typer.echo(
+        f"\n{report.run_period}  {report.timesteps} timesteps  reference {report.reference}\n"
+    )
+    band = results[0].kpis.comfort_band
+    typer.echo(
+        f"{'arm':<12}{'kWh':>11}{'%':>9}{'peak kW':>10}{'%':>9}"
+        f"{'unmet h':>10}{'outside h':>12}{'K.h':>9}{'Δ':>9}"
+    )
+    for arm in report.arms:
+        is_reference = arm.label == report.reference
+        typer.echo(
+            f"{arm.label:<12}{arm.electricity_kwh:>11.1f}"
+            f"{'-' if is_reference else format(arm.electricity_pct, '+.2f'):>9}"
+            f"{arm.peak_demand_kw:>10.1f}"
+            f"{'-' if is_reference else format(arm.peak_demand_pct, '+.2f'):>9}"
+            f"{arm.unmet_hours:>10.2f}{arm.comfort_exceedance_hours:>12.2f}"
+            f"{arm.comfort_degree_hours:>9.1f}"
+            f"{'-' if is_reference else format(arm.comfort_degree_hours_change, '+.1f'):>9}"
+        )
+    typer.echo(
+        f"\nunmet h is against each arm's own setpoint; "
+        f"outside h and K.h are against the fixed {band.lower}-{band.upper} C band"
+    )
+    typer.echo(f"\nwrote {config.RUNS / 'comparison.json'}")
 
 
 if __name__ == "__main__":
