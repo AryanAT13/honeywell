@@ -76,18 +76,43 @@ def zones(model: Model) -> list[str]:
     return sorted(model.get("Zone", {}))
 
 
-def conditioned_zones(model: Model) -> list[str]:
-    """Zones with a thermostat. Plenums and unconditioned spaces are excluded."""
+def _thermostat_targets(model: Model) -> list[tuple[dict, list[str]]]:
+    """Each thermostat paired with the zones it governs, with zone lists expanded."""
     lists = {
         name: [e["zone_name"] for e in f.get("zones", [])]
         for name, f in model.get("ZoneList", {}).items()
     }
-    found: set[str] = set()
+    canonical = {z.upper(): z for z in zones(model)}
+    resolved = []
     for fields in model.get("ZoneControl:Thermostat", {}).values():
         target = fields.get("zone_or_zonelist_name")
-        if target in lists:
-            found.update(lists[target])
-        elif target:
-            found.add(target)
-    known = {z.upper(): z for z in zones(model)}
-    return sorted({known.get(z.upper(), z) for z in found})
+        if not target:
+            continue
+        governed = lists[target] if target in lists else [target]
+        resolved.append((fields, [canonical.get(z.upper(), z) for z in governed]))
+    return resolved
+
+
+def conditioned_zones(model: Model) -> list[str]:
+    """Zones with a thermostat. Plenums and unconditioned spaces are excluded."""
+    return sorted({z for _, governed in _thermostat_targets(model) for z in governed})
+
+
+def thermostat_schedules(model: Model) -> dict[str, tuple[str, str]]:
+    """Zone -> (heating schedule, cooling schedule), read from the model's thermostat wiring.
+
+    Controllers offset the scheduled setpoint rather than the reported one, which would
+    include their own previous override and ratchet away over the run.
+    """
+    dual = model.get("ThermostatSetpoint:DualSetpoint", {})
+    found: dict[str, tuple[str, str]] = {}
+    for fields, governed in _thermostat_targets(model):
+        setpoint = dual.get(fields.get("control_1_name", ""))
+        if fields.get("control_1_object_type") != "ThermostatSetpoint:DualSetpoint" or not setpoint:
+            continue
+        pair = (
+            setpoint["heating_setpoint_temperature_schedule_name"],
+            setpoint["cooling_setpoint_temperature_schedule_name"],
+        )
+        found.update(dict.fromkeys(governed, pair))
+    return found

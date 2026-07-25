@@ -1,7 +1,7 @@
 PY := .venv/bin/python
 ECOLOOP := .venv/bin/ecoloop
 
-.PHONY: setup install-eplus info smoke baseline test lint clean
+.PHONY: setup install-eplus info smoke baseline compare test lint clean
 
 setup: install-eplus .venv
 
@@ -21,6 +21,9 @@ smoke:
 
 baseline:
 	@$(ECOLOOP) run --label baseline_annual --period annual
+
+compare:
+	@$(ECOLOOP) compare --arms baseline,deadband --period summer
 
 test:
 	@.venv/bin/pytest -q
