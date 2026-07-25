@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Simulation outputs are regenerable
+runs/
+*.epJSON.cache
+.env
+.DS_Store

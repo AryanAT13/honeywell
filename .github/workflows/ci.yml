@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache EnergyPlus
+        uses: actions/cache@v4
+        with:
+          path: ~/opt/EnergyPlus-26-1-0
+          key: energyplus-26.1.0-${{ runner.os }}
+
+      - run: bash scripts/install_energyplus.sh
+
+      - run: |
+          python -m venv .venv
+          .venv/bin/pip install -q -e ".[dev]"
+
+      - run: make lint
+
+      - run: make test
