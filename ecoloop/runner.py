@@ -231,6 +231,7 @@ def run(spec: RunSpec, author: PolicyAuthor | None = None, guarded: bool = True)
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
 
+    (out_dir / "spec.json").write_text(spec.model_dump_json(indent=2))
     epjson = prepare_model(spec, out_dir)
     building = model_io.load(epjson)
     zones = model_io.conditioned_zones(building)

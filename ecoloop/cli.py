@@ -126,5 +126,16 @@ def compare(
     typer.echo(f"\nwrote {config.RUNS / 'comparison.json'}")
 
 
+@app.command()
+def serve(http: bool = False) -> None:
+    """Serve the capability layer over MCP, on stdio by default.
+
+    Nothing may be written to stdout on stdio transport; it carries the protocol.
+    """
+    from .mcp_server import server
+
+    server.run(transport="streamable-http" if http else "stdio")
+
+
 if __name__ == "__main__":
     app()

@@ -18,8 +18,8 @@ from pydantic import BaseModel
 
 from . import config, runner
 from .contracts import RunPeriod, RunResult, RunSpec
-from .policy import Band
-from .strategies import FixedBand, PolicyAuthor, SupplyAirReset
+from .policy import Band, Policy
+from .strategies import Fixed, PolicyAuthor, SupplyAirReset
 
 
 @dataclass(frozen=True)
@@ -36,9 +36,12 @@ ARMS: dict[str, Arm] = {
     # left of it to measure.
     "deadband": Arm(
         "deadband",
-        FixedBand(
-            occupied=Band(heating=20.5, cooling=24.5),
-            unoccupied=Band(heating=15.6, cooling=26.7),
+        Fixed(
+            Policy(
+                occupied=Band(heating=20.5, cooling=24.5),
+                unoccupied=Band(heating=15.6, cooling=26.7),
+                reason="widen the occupied band by 0.5 K",
+            )
         ),
         guarded=False,
     ),
