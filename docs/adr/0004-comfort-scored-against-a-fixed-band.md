@@ -13,9 +13,11 @@ own deadband therefore improves its own score, and one that widens it to 40 C sc
 perfectly. Comfort is 20% of the evaluation and the brief asks explicitly whether the agent
 saved energy at the occupants' expense, so a metric the agent can move is not usable.
 
-Phase 1 measured this rather than assuming it. Widening the occupied deadband by 0.5 K over a
-summer week cut energy 1.49% and *improved* unmet hours from 6.00 to 4.50, while occupied
-time outside a fixed 21-24 C band went from 10.83 to 99.00 hours.
+The failure is not subtle. A controller holding a zone at 29 C while commanding a 30 C
+cooling setpoint reports zero unmet hours, and `tests/test_kpi.py` pins that down. Over a
+full year the naive widened-band arm saves 0.89% of electricity and takes occupied time
+outside a fixed 21-24 C band from 507 to 4,891 hours; unmet hours register only a quarter of
+that relative change.
 
 ## Decision
 
@@ -27,9 +29,9 @@ Two metrics, reported side by side, with different jobs.
   setpoints: were occupants actually comfortable? The controller cannot move this band.
 
 The excursion is reported both as hours outside and as degree-hours, because an hour 0.1 K
-over the band and an hour 5 K over it are the same by count and are not the same thing. Over
-the same week the count suggested a ninefold degradation and degree-hours showed 2.2x, which
-is the more faithful reading: many shallow excursions rather than a few deep ones.
+over the band and an hour 5 K over it are the same by count and are not the same thing. For
+the widened-band arm the count suggests a tenfold degradation and degree-hours show 1.7x,
+which is the more faithful reading: many shallow excursions rather than a few deep ones.
 
 ## Consequences
 
