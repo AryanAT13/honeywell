@@ -103,6 +103,19 @@ def supply_air_schedules(model: Model) -> list[str]:
     )
 
 
+def hvac_availability_schedules(model: Model) -> list[str]:
+    """Schedules gating the air system. Writing zero to these stops the fans."""
+    return sorted(
+        {
+            fields["availability_schedule_name"]
+            for kind, objects in model.items()
+            if kind.startswith("Fan:")
+            for fields in objects.values()
+            if fields.get("availability_schedule_name")
+        }
+    )
+
+
 def _thermostat_targets(model: Model) -> list[tuple[dict, list[str]]]:
     """Each thermostat paired with the zones it governs, with zone lists expanded."""
     lists = {
