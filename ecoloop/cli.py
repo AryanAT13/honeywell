@@ -127,13 +127,13 @@ def compare(
 
 
 @app.command()
-def commission(model: Path = config.DEFAULT_MODEL) -> None:
+def commission(model: Path = config.DEFAULT_MODEL, weather: str = "chicago") -> None:
     """Survey a building and report which measures earn their place on it."""
     from . import commissioning as cm
 
-    plan = cm.commission(model)
+    plan = cm.commission(model, weather=config.CLIMATES.get(weather, Path(weather)))
     typer.echo(
-        f"\n{plan.model}  {plan.conditioned_zones} conditioned zones  "
+        f"\n{plan.model} on {weather}  {plan.conditioned_zones} conditioned zones  "
         f"{plan.baseline.electricity_kwh:,.0f} kWh/yr\n"
     )
     typer.echo("  " + "  ".join(f"{k} {v:.1%}" for k, v in plan.end_uses.items()))
@@ -154,12 +154,15 @@ def decisions(label: str = typer.Argument("agent")) -> None:
         typer.echo(f"no recorded decisions for '{label}'")
         raise typer.Exit(1)
 
-    served = sum(1 for d in records if d.cached)
+    replayed = sum(1 for d in records if d.cached)
     failed = [d for d in records if not d.plan]
-    latencies = sorted(d.latency_s for d in records if not d.cached)
+    # Cached records carry the latency of the call that produced them.
+    latencies = sorted(d.latency_s for d in records) or [0.0]
     typer.echo(
-        f"{len(records)} decisions, {served} from cache, {len(failed)} without a plan, "
-        f"median {latencies[len(latencies) // 2] if latencies else 0:.1f} s"
+        f"{len(records)} decisions, {len(failed)} without a plan, "
+        f"{sum(1 for d in records if d.attempts > 1)} needing a repair retry, "
+        f"median inference {latencies[len(latencies) // 2]:.1f} s "
+        f"({replayed} replayed from the committed journal)"
     )
     for record in records:
         plan = record.plan

@@ -30,12 +30,12 @@ class Scenario(BaseModel):
 
 class AgentStats(BaseModel):
     decisions: int
+    replayed: int
     failed: int
     retried: int
     distinct_ceilings: int
     median_latency_s: float
-    live_seconds: float
-    replay_seconds: float
+    inference_seconds: float
 
 
 class Evidence(BaseModel):
@@ -72,15 +72,17 @@ def _agent_stats(root: Path) -> AgentStats | None:
     if not records.is_file():
         return None
     decisions = [llm.Decision.model_validate(entry) for entry in json.loads(records.read_text())]
-    latencies = sorted(d.latency_s for d in decisions if not d.cached) or [0.0]
+    # Cached records carry the latency of the call that produced them, so these are the
+    # measured inference costs whether this run replayed them or not.
+    latencies = sorted(d.latency_s for d in decisions) or [0.0]
     return AgentStats(
         decisions=len(decisions),
+        replayed=sum(1 for d in decisions if d.cached),
         failed=sum(1 for d in decisions if not d.plan),
         retried=sum(1 for d in decisions if d.attempts > 1),
         distinct_ceilings=len({d.plan.supply_air_ceiling for d in decisions if d.plan}),
         median_latency_s=round(latencies[len(latencies) // 2], 1),
-        live_seconds=round(sum(d.latency_s for d in decisions if not d.cached), 1),
-        replay_seconds=0.0,
+        inference_seconds=round(sum(d.latency_s for d in decisions), 1),
     )
 
 
@@ -249,9 +251,9 @@ def render(evidence: Evidence, root: Path | None = None) -> str:
         agent = (
             f"<p>{a.decisions} decisions over the year, {a.failed} without a plan, "
             f"{a.retried} needing the schema repair retry, {a.distinct_ceilings} distinct "
-            f"ceilings chosen. Median live latency {a.median_latency_s:.1f} s; "
-            f"{a.live_seconds / 60:.0f} minutes of inference in total, replayed from cache "
-            f"in seconds.</p>"
+            f"ceilings chosen. Median inference {a.median_latency_s:.1f} s, "
+            f"{a.inference_seconds / 60:.0f} minutes in total; {a.replayed} of them replayed "
+            f"from the committed journal in this run, which is why it took minutes.</p>"
         )
 
     return f"""<!doctype html><meta charset=utf-8><title>Eco-Loop evidence</title>
