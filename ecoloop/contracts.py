@@ -55,6 +55,7 @@ class RunSpec(BaseModel):
     output_dir: Path
     comfort_band: ComfortBand = ComfortBand()
     decision_interval_minutes: int = 30
+    forecast_seed: int = 0
 
     @field_validator("timesteps_per_hour")
     @classmethod
@@ -101,5 +102,5 @@ class RunResult(BaseModel):
     kpis: KpiSummary
     telemetry: Path
     severe_errors: int = 0
-    decisions: int = 0
+    policy_decisions: int = 0
     clamps: dict[str, int] = {}

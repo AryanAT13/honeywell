@@ -9,6 +9,7 @@ raw log or a full timeseries, because the caller is usually paying by the token.
 
 from __future__ import annotations
 
+import json
 import math
 from datetime import datetime
 from pathlib import Path
@@ -16,7 +17,7 @@ from pathlib import Path
 import pandas as pd
 from pydantic import BaseModel
 
-from . import config, digest, errors, experiment, runner
+from . import config, digest, errors, experiment, llm, runner
 from . import model as model_io
 from .contracts import ComfortBand, KpiSummary, RunPeriod, RunSpec
 from .control import Setpoints, ZoneObservation
@@ -154,6 +155,14 @@ def run_kpis(label: str) -> KpiSummary:
 def run_errors(label: str) -> errors.ErrorReport:
     """Warning and error counts from a run, with the blocking messages deduplicated."""
     return errors.parse(_run_dir(label) / "eplusout.err")
+
+
+def run_decisions(label: str) -> list[llm.Decision]:
+    """Every plan the model was asked for during a run, with its latency and any failure."""
+    path = _run_dir(label) / "decisions.json"
+    if not path.is_file():
+        return []
+    return [llm.Decision.model_validate(entry) for entry in json.loads(path.read_text())]
 
 
 def _summary_frame(frame: pd.DataFrame, seconds: int) -> pd.DataFrame:
