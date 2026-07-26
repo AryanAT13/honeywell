@@ -84,3 +84,11 @@ def test_unoccupied_zones_do_not_generate_excursions():
     effective = {"hot": Setpoints(15.6, 26.7)}
     state = digest.build(datetime(2023, 1, 1, 3), observations, effective, 50.0, COMFORT)
     assert state.worst_excursion_k == 0.0
+
+
+def test_review_does_not_drop_fields_it_does_not_clamp():
+    """A rebuilt policy silently loses new fields, which disables the measure using them."""
+    guardian = Guardian(COMFORT)
+    reviewed = guardian.review(Policy(hvac_available=False, reason="empty and idle"))
+    assert reviewed.hvac_available is False
+    assert reviewed.reason == "empty and idle"

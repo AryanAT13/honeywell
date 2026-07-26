@@ -30,6 +30,7 @@ class Policy(BaseModel):
     occupied: Band | None = None
     unoccupied: Band | None = None
     supply_air_temperature: float | None = None
+    hvac_available: bool | None = None
     reason: str = ""
 
 
@@ -92,11 +93,14 @@ class Guardian:
                 "supply_air", supply_air, limits.supply_air_min, limits.supply_air_max
             )
 
-        return Policy(
-            occupied=occupied,
-            unoccupied=unoccupied,
-            supply_air_temperature=supply_air,
-            reason=proposed.reason,
+        # Copied and updated rather than rebuilt: a rebuild silently drops any field the
+        # guardian does not know about, so adding one to Policy would quietly disable it.
+        return proposed.model_copy(
+            update={
+                "occupied": occupied,
+                "unoccupied": unoccupied,
+                "supply_air_temperature": supply_air,
+            }
         )
 
 
