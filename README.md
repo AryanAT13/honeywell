@@ -11,11 +11,13 @@ is a solved problem that reaches under 5% of buildings, because every deployment
 of engineering time to map points, build a model and tune a strategy. The LLM's job here is to
 remove that cost — not to replace the controller.
 
-**Status: Phase 4 complete.** A deterministic supervisory controller runs in closed loop and
+**Status: Phase 5 complete.** A deterministic supervisory controller runs in closed loop and
 saves 5.3% of annual electricity and 8.7% of peak with comfort held. The capability layer is
 exposed over MCP. A local model now supervises that controller — and measurably does not
 improve it, for a reason worth reading: the task has no headroom left. See
-[the model section](#the-model-and-what-it-turned-out-to-be-worth).
+[the model section](#the-model-and-what-it-turned-out-to-be-worth). Pointed at a building it
+was not built for, it now refuses to deploy rather than silently doing nothing, and it
+repairs a model EnergyPlus will not run.
 
 ## Requirements
 
@@ -57,6 +59,7 @@ Only needed for `make agent`.
 | `make baseline` | Annual baseline run (~14 s) |
 | `make compare` | All three arms over a full year (~35 s) |
 | `make agent` | Model-supervised arm against the deterministic one |
+| `ecoloop commission --model <idf>` | Which measures earn their place on a building |
 | `ecoloop decisions agent` | What the model decided, and what each call cost |
 | `make serve` | Serve the capability layer over MCP on stdio |
 | `make inspector` | Open the MCP Inspector against the server |
@@ -136,6 +139,53 @@ anticipating the shoulder-season afternoon does not move it either. And run unch
 Delhi weather the same controller returns 0.59% over a year, against 5.33% in Chicago,
 because Delhi sits above its outdoor ceiling almost all year. Choosing the right measure per
 building and per climate is the engineering cost the agent exists to remove.
+
+## An unfamiliar building
+
+Everything above is one building. Pointed at the small office — five packaged single-zone
+units instead of three VAV loops — the supervisor ran 336 policy decisions over a week,
+changed nothing, exited zero and reported success. There is no central supply air schedule to
+actuate, so the measure had nothing to act on. Energy matched the baseline to the last digit.
+
+Commissioning makes that a refusal instead. It discovers what can be actuated, surveys where
+the energy goes over an untouched year, and then **tries** each candidate against that
+baseline:
+
+| | medium office | small office |
+| --- | --- | --- |
+| electric reheat | 18.5% | 0.0% |
+| fans | 2.6% | 16.6% |
+| `supply_air_reset` | tried: −5.33%, +7.0 K·h → **deployed** | no handle in this model |
+| `hvac_availability` | fans below the 3% worth touching | tried: **+2.14%** → rejected |
+| outcome | supply air reset | **deploys nothing** |
+
+The third row is the point. Fans dominate the small office, its availability schedule is
+actuable, and running the fans only when occupied still made the building worse — fan energy
+alone rose 12.5%. Releasing the schedule hands the system to its
+`AvailabilityManager:NightCycle`, which cycles on any zone 1 K off setpoint for a fixed 30
+minutes, and that cycles harder than the schedule it replaced. Neither the load breakdown nor
+the control surface predicts that; it is a property of control objects already in the model.
+Only a trial catches it. See [ADR 0008](docs/adr/0008-commissioning-by-trial.md).
+
+So the system deploys nothing on that building and says why. Refusing is the correct outcome,
+and a framework that deployed the fan measure because it was applicable and aimed at the
+dominant load would have made things worse and reported success.
+
+## Repairing a model that will not run
+
+One mistyped schedule reference produces eleven severe errors, one fatal, and no simulation.
+Those resolve to a single fault — object type, field, and the value that could not be
+resolved — and the repair loop proposes the nearest existing name, repoints every object
+carrying it, writes the patched model out as both epJSON and IDF, and runs again.
+
+```
+11 severe -> 1 fault: ThermostatSetpoint:DualSetpoint.cooling_setpoint_temperature_schedule_name
+   'CLGSETP_SCH_TYPO' -> 'CLGSETP_SCH'   (5 objects)
+   wrote repaired_v1.idf, run completed
+```
+
+A name with no close match is not guessed at: the loop gives up and says what it could not
+resolve, rather than retrying forever.
 
 ## The model, and what it turned out to be worth
 
@@ -219,6 +269,7 @@ See [ADR 0006](docs/adr/0006-one-capability-layer-two-surfaces.md).
 | --- | --- |
 | `list_models`, `list_climates`, `list_runs` | what is available |
 | `inspect_model` | a model's control surface: conditioned zones, schedules, air loops |
+| `commission_model` | which measures a building can take, each verified by trial |
 | `run_kpis`, `run_errors` | headline numbers, and warning/severe/fatal counts |
 | `run_decisions` | every plan the model was asked for, with latency and any failure |
 | `telemetry` | a downsampled window; the full frame is never returned |
@@ -250,6 +301,8 @@ HTTP on port 8000. To attach a desktop client, add to its MCP config:
 
 ```
 ecoloop/
+  commissioning.py  discover, survey and trial measures on an unfamiliar building
+  repair.py      turn a model EnergyPlus refuses into one it will run
   llm.py         the local model client, and the record of everything it was asked
   tools.py       the capability layer: what anything reasoning about the building may do
   mcp_server.py  MCP registration over tools.py, and nothing else
