@@ -1,6 +1,6 @@
 # 5. Supply air reset is the deterministic controller, and what it cannot do
 
-Status: accepted
+Status: accepted; the anticipation hypothesis below was later refuted by ADR 0007
 
 ## Context
 
@@ -53,6 +53,12 @@ shoulder-season core overheating is driven by solar and internal gains that are 
 hours ahead, and a controller that responds only after a zone has left the band cannot
 pre-empt it. Closing that gap needs anticipation, which is a concrete and measurable target
 for the agent rather than a general hope that it will do better.
+
+That hypothesis was tested in Phase 4 and did not survive. A supervisor with perfect
+discrimination, applying this same curve to the forecast peak instead of the current reading,
+matches the reactive controller to within 0.03 percentage points. The excursion-driven
+correction adopted above already reacts inside one 30-minute decision, which is fast enough
+that seeing the afternoon coming adds nothing. See ADR 0007.
 
 The measure is also climate-specific, which matters more than the frontier. Run unchanged on
 New Delhi weather it returns 0.59% over a year, because Delhi sits above the outdoor ceiling

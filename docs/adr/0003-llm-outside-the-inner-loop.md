@@ -24,9 +24,15 @@ Three timescales, and only the outer two involve the LLM.
 - Daily and weekly, the LLM scores what it did, updates memory, and proposes structural
   measures.
 
-Policies are double buffered: horizon N+1 is computed while horizon N executes, so the
-simulation never blocks on inference. If a response is late, malformed or absent, the
-previous validated policy stays active.
+If a response is late, malformed or absent, the previous validated plan stays active and the
+deterministic controller keeps running underneath it.
+
+This originally also called for double buffering, computing horizon N+1 while horizon N
+executes. Phase 4 measurement retired that. An annual simulation takes 14 seconds and a local
+inference takes seconds, so the simulation is never the party that waits; overlapping the two
+would save at most the simulation's own runtime. What actually matters is calling the model
+rarely enough and never depending on the answer arriving, both of which are cheaper to build
+than a buffered pipeline and easier to reason about.
 
 Control actions are still injected into the live instance every timestep, and the LLM runs
 continuously throughout the run rather than post-processing it.

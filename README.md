@@ -11,16 +11,20 @@ is a solved problem that reaches under 5% of buildings, because every deployment
 of engineering time to map points, build a model and tune a strategy. The LLM's job here is to
 remove that cost — not to replace the controller.
 
-**Status: Phase 3 complete.** A deterministic supervisory controller runs in closed loop
-against the live simulation and saves 5.3% of annual electricity and 8.7% of peak with
-comfort held, and the whole capability layer is exposed over MCP, so an external client can
-propose a policy and get it scored. No LLM yet — this is the bar the agent has to beat.
+**Status: Phase 4 complete.** A deterministic supervisory controller runs in closed loop and
+saves 5.3% of annual electricity and 8.7% of peak with comfort held. The capability layer is
+exposed over MCP. A local model now supervises that controller — and measurably does not
+improve it, for a reason worth reading: the task has no headroom left. See
+[the model section](#the-model-and-what-it-turned-out-to-be-worth).
 
 ## Requirements
 
 - Python 3.11+
 - macOS (arm64/x86_64) or Linux (x86_64/arm64)
 - ~1 GB disk for EnergyPlus
+- [Ollama](https://ollama.com) with `qwen2.5:3b-instruct`, for the agent arm only. Everything
+  else runs without it, and the agent arm degrades to the deterministic controller rather
+  than failing. Override with `ECOLOOP_LLM_MODEL` and `ECOLOOP_LLM_HOST`.
 
 ## Quick start
 
@@ -37,6 +41,12 @@ make smoke
 
 Runs a 3-day simulation of the baseline model and prints its KPIs.
 
+```bash
+ollama pull qwen2.5:3b-instruct
+```
+
+Only needed for `make agent`.
+
 ## Commands
 
 | Command | Purpose |
@@ -46,6 +56,8 @@ Runs a 3-day simulation of the baseline model and prints its KPIs.
 | `make smoke` | 3-day baseline run (~1 s) |
 | `make baseline` | Annual baseline run (~14 s) |
 | `make compare` | All three arms over a full year (~35 s) |
+| `make agent` | Model-supervised arm against the deterministic one |
+| `ecoloop decisions agent` | What the model decided, and what each call cost |
 | `make serve` | Serve the capability layer over MCP on stdio |
 | `make inspector` | Open the MCP Inspector against the server |
 | `make test` | Test suite, including real simulations |
@@ -55,7 +67,7 @@ Runs a 3-day simulation of the baseline model and prints its KPIs.
 `--timesteps-per-hour`. `--period` accepts a named window (`smoke`, `summer`, `winter`,
 `shoulder`, `annual`) or an explicit `MM-DD:MM-DD` range. `--weather` accepts `chicago`,
 `delhi`, or a path to any EPW. `ecoloop compare` additionally takes `--arms`, chosen from
-`baseline`, `deadband` and `supervisor`.
+`baseline`, `deadband`, `supervisor` and `agent`.
 
 ## Baseline
 
@@ -106,6 +118,7 @@ Full year, Chicago, against the stock model on an identical clock:
 | baseline | 767,959 | 344.9 | 56.0 | 507 | 1,030 |
 | deadband, unguarded | 761,115 (−0.89%) | 340.4 (−1.31%) | 231.3 | 4,891 | 1,715 (+67%) |
 | **supervisor** | **727,003 (−5.33%)** | **315.1 (−8.66%)** | **51.5** | 514 | 1,037 (+0.7%) |
+| agent, model-supervised | 756,427 (−1.50%) | 340.4 (−1.31%) | 55.0 | 509 | 1,033 (+0.3%) |
 
 The supervisor resets supply air temperature and never touches a thermostat. It returns six
 times the energy of the naive deadband arm for a hundredth of the comfort cost, and lowers
@@ -116,13 +129,82 @@ correction has to be driven by the single worst zone — two core zones caused 1
 degree-hours of shoulder-season damage against ≤1.8 for any perimeter zone. And it has to be
 clamped against integral windup, which otherwise turned an 11.02% saving into 0.17%.
 
-What it cannot do is also recorded. Strict comfort non-degradation is unreachable reactively,
-because shoulder-season core overheating is driven by gains that are predictable hours ahead;
-the energy-comfort frontier is mapped in
-[ADR 0005](docs/adr/0005-supply-air-reset-as-the-first-measure.md). And run unchanged on New
+What it cannot do is also recorded. Strict comfort non-degradation is not reachable at all
+here — the energy-comfort frontier is mapped in
+[ADR 0005](docs/adr/0005-supply-air-reset-as-the-first-measure.md), and Phase 4 showed that
+anticipating the shoulder-season afternoon does not move it either. And run unchanged on New
 Delhi weather the same controller returns 0.59% over a year, against 5.33% in Chicago,
 because Delhi sits above its outdoor ceiling almost all year. Choosing the right measure per
 building and per climate is the engineering cost the agent exists to remove.
+
+## The model, and what it turned out to be worth
+
+A local model (Qwen2.5 via Ollama) sets one number: the supply air ceiling for the next 24
+hours, chosen from a day-ahead forecast. The Guideline 36 loop keeps running underneath it.
+The forecast is deliberately degraded with error that grows with lead time, because the
+weather file is perfect foresight and reading it straight out would flatter anything that
+depends on planning ahead.
+
+It does not beat the deterministic controller. Over a full year it returns −1.50% against the
+supervisor's −5.33%, for a comfort figure 3.7 K·h better out of 1,030. Per season:
+
+| period | deterministic | agent, Qwen2.5 3B |
+| --- | --- | --- |
+| winter | **−13.25%**, 21.7 K·h | −6.05%, 22.2 K·h |
+| shoulder | **−1.43%**, 17.4 K·h | −0.03%, 17.3 K·h |
+| summer | 0.00%, 25.7 K·h | 0.00%, 25.7 K·h |
+
+Before concluding the model is at fault, we bounded the task. A perfect-discrimination
+supervisor — the same outdoor curve applied to the *forecast peak* rather than the current
+reading, which is exactly the anticipation the model was asked for — returns −13.24%, −1.40%
+and 0.00%. That matches the deterministic controller to within 0.03 percentage points.
+
+**There is no anticipation headroom left on this measure.** The gap Phase 2 identified was
+closed by Phase 2 itself, when the correction was retuned to respond to the worst zone's
+excursion. That reacts inside a single 30-minute decision, which is fast enough that seeing
+the afternoon coming adds nothing. The ceiling on this task is a tie, and a model can only
+lose.
+
+That is invisible without a deterministic bar to measure against. Compared only to the stock
+building, this agent saves 6% and looks like a success.
+
+Neither local model performs the task reliably in any case. The 3B answers 18.0 °C — the
+warmest available deck — for a day forecast to reach 34 °C, and three prompt revisions did not
+fix it. The 7B gets that case right and then asks for 13.5 °C on a day that never rises above
+3 °C, forfeiting the reheat saving; it is also three times slower here, ~16 s a call against
+~5 s, measured with the other model unloaded.
+
+The recorded reasoning shows why, and it is not a formatting problem. On 1 January the 3B
+wrote that it was *"a cold day with temperatures dropping below freezing, so … the supply air
+temperature should be set at the minimum allowable value of 12.8 °C"* — the correct premise
+and the inverted conclusion. It does vary its answer across the year, using 32 distinct
+ceilings over 368 decisions, but the variation does not track what the building needs. Full
+detail in [ADR 0007](docs/adr/0007-what-the-model-supervises.md).
+
+So the model is bounded to *lowering* the ceiling, never raising it — the same principle as
+the guardian one layer down: do not rely on the model being right, make being wrong harmless.
+With that bound the summer arm is byte-identical to the untouched baseline.
+
+Every call is recorded whole — prompt hash, plan, latency, retries, any error — and cached by
+prompt, so a completed run replays from disk without a model. The annual agent arm takes
+2,898 s to run live and **28 s to replay**, reproducing every KPI exactly. Two things are
+needed for that exactness, and the first was found the hard way. Ollama picks a fresh sampler seed
+per call unless told otherwise, so identical prompts returned different ceilings, each answer
+fed the next prompt through the scorecard, and the trajectory diverged; the seed is now
+pinned. The second is that failed calls are deliberately *not* cached, so a run that hit a
+transient outage will not replay identically, which is the honest behaviour rather than baking
+an outage into the record.
+
+Nothing here can stop the simulation. A slow, unreachable or malformed response returns a
+decision carrying an error instead of a plan, the previous ceiling stays in force, and with no
+plan at all the deterministic curve drives the building. `tests/test_llm.py` kills the model
+partway through a run and asserts the run finishes and still saves energy.
+
+None of this contradicts the premise at the top of this file; it is the first hard evidence
+for it. Tuning a measure an engineer has already tuned has no room in it. The measures this
+building has never had — optimal start against its February morning peak, terminal minimum
+flow, economiser operation — are worth more than perfecting the one it has, and choosing
+between them for an unfamiliar building is the judgement a curve cannot make.
 
 ## MCP interface
 
@@ -138,6 +220,7 @@ See [ADR 0006](docs/adr/0006-one-capability-layer-two-surfaces.md).
 | `list_models`, `list_climates`, `list_runs` | what is available |
 | `inspect_model` | a model's control surface: conditioned zones, schedules, air loops |
 | `run_kpis`, `run_errors` | headline numbers, and warning/severe/fatal counts |
+| `run_decisions` | every plan the model was asked for, with latency and any failure |
 | `telemetry` | a downsampled window; the full frame is never returned |
 | `state_digest` | the situation report as a policy author saw it at a given moment |
 | `check_policy` | project a policy onto the safe envelope without running anything |
@@ -167,6 +250,7 @@ HTTP on port 8000. To attach a desktop client, add to its MCP config:
 
 ```
 ecoloop/
+  llm.py         the local model client, and the record of everything it was asked
   tools.py       the capability layer: what anything reasoning about the building may do
   mcp_server.py  MCP registration over tools.py, and nothing else
   eplus.py       locate the pinned EnergyPlus install, expose its Python API
@@ -175,7 +259,7 @@ ecoloop/
   control.py     what a controller sees, what it may command, how it is written
   policy.py      the control plan, the guardian that bounds it, how it becomes commands
   digest.py      the fixed-size situation report a policy author reasons over
-  strategies.py  policy authors; the LLM becomes another one in Phase 4
+  strategies.py  policy authors, deterministic and model-supervised
   experiment.py  run arms over identical weather and compare them pairwise
   kpi.py         telemetry frame -> comparable headline numbers
   errors.py      structured reading of eplusout.err
@@ -238,7 +322,7 @@ from climate.onebuilding.org; its licence is committed alongside it.
 | 1 | Closed loop: live actuator writes, paired baseline twin | done |
 | 2 | Deterministic controller, safety guardian, state digest | done |
 | 3 | MCP server | done |
-| 4 | LLM cognition: strategy, reflection, self-repair | next |
-| 5 | Self-commissioning onto unseen models, fault injection | |
+| 4 | Model supervision, guarded and measured | done |
+| 5 | Self-commissioning onto unseen models, fault injection | next |
 | 6 | Ablation ladder, dashboard, report | |
 | 7 | Packaging and delivery | |
