@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-21T21:40:00",
+  "prompt_hash": "2aa3ee16251c0b51",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.1°C on July 22nd, which is higher than today's outdoor temperature of 21.7°C. Given that the core zone at the top of the building is already at 26.6°C and there are no significant cooling requests from other zones, it indicates a need to raise the supply air temperature ceiling to prevent overheating in these critical areas. Raising the ceiling to 18.0°C will allow for sufficient reheat in the core zones without overcooling the building during the warmest forecasted period.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.99,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-13T21:40:00",
+  "prompt_hash": "3e0148dfb1516116",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 25.2°C in the next day, which is significantly higher than today's outdoor temperature of 15.2°C. Given that the core zone at 25.0°C is already uncomfortably hot and considering the worst excursion of 0.83 K from its normal operation, it indicates a need to raise the supply air temperature ceiling to prevent overheating in these zones. Raising the ceiling to 16.0°C will allow for some margin while still being within the valid range of 12.8 to 18.0°C and should help manage the cooling load effectively without overcooling, thus avoiding unnecessary reheat loads.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.39,
+  "cached": false
+}

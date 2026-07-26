@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-27T21:40:00",
+  "prompt_hash": "dd1bd5fbf077e258",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 27.0°C on September 29th, which is the day with the highest outdoor temperature in the upcoming period. Given this, it's important to set the supply air ceiling high enough to prevent overheating in the core zones while still allowing for efficient reheat during cooler periods. Setting the ceiling at 16.8°C will ensure that even on the warmest forecasted day, the supply air remains comfortably cool and avoids overcooling which could lead to unnecessary reheats in occupied areas.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.3,
+  "cached": false
+}

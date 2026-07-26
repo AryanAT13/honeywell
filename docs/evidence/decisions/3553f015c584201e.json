@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-11T22:40:00",
+  "prompt_hash": "3553f015c584201e",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 7.4°C at 3 PM on the 12th, which is significantly warmer than today's outdoor temperature of 5.0°C. Given that the core zone mid is already at 22.3°C and there are no significant cooling requests from other zones, lowering the supply air temperature to 16.8°C would allow for a more comfortable environment while still being within the valid range of 12.8 to 18.0°C. This setting balances the need to avoid overheating with the potential savings from reduced reheat loads.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.31,
+  "cached": false
+}

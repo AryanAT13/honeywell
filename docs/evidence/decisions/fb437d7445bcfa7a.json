@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-27T21:40:00",
+  "prompt_hash": "fb437d7445bcfa7a",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 8.5°C at 3:00 PM, which is significantly below the current indoor core zone temperature of 23.0°C. Given this information, it's clear that cooling will be needed to maintain comfort in the interior cores. To avoid overheating and to take advantage of the forecasted mild conditions, a supply air ceiling of 14.5°C should be set for the next 24 hours. This temperature allows for effective reheat in the perimeter zones while keeping the core zones comfortable without unnecessary cooling from the central system.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.26,
+  "cached": false
+}

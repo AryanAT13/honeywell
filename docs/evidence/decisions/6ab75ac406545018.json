@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-24T21:40:00",
+  "prompt_hash": "6ab75ac406545018",
+  "plan": {
+    "reason": "The forecast shows multiple warm days followed by a cold day. The core temperature is already above the previous ceiling of 17.5 C, indicating that cooling is needed even on mild days. To prevent overheating during the warmest part of the forecast (25.6 C), setting the ceiling at 18.0 C will ensure that supply air stays below this threshold and avoids overcooling in anticipation of the cold day.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 2,
+  "latency_s": 17.68,
+  "cached": false
+}

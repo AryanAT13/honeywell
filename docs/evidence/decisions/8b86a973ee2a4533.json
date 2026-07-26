@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-01T21:40:00",
+  "prompt_hash": "8b86a973ee2a4533",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.0°C on June 02, which is higher than the current indoor core top temperature at 26.0°C. Given this, it's important to set the supply air ceiling slightly below the forecasted peak to avoid overheating the cores and ensure comfort for all zones.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.99,
+  "cached": false
+}

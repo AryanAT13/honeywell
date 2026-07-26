@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-03T21:40:00",
+  "prompt_hash": "a431da07c9ecaaff",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 29.0°C on June 03, which is significantly higher than today's outdoor temperature of 18.1°C. Given that the core zone at the top of the building is already at 25.8°C and there are no significant cooling requests from other zones, it is prudent to set a ceiling slightly above the current average supply air temperature (12.8°C) but not too high to avoid overheating the cores. The forecast's warmest point will be on June 06 with an outdoor temperature of 29.0°C. Therefore, setting the ceiling at 17.5°C allows for some margin and ensures that the supply air remains within a reasonable range while avoiding overheating in case of extreme temperatures.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 13.21,
+  "cached": false
+}

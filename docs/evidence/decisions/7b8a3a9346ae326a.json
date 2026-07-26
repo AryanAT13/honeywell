@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-19T21:40:00",
+  "prompt_hash": "7b8a3a9346ae326a",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 34.4°C on June 20th, which is significantly higher than today's 25.6°C. Given that the core zone at 25.9°C is already slightly above the current ceiling of 16.0°C and considering the forecasted high temperatures, it would be prudent to set a lower supply air temperature to avoid overheating the cores. Setting the ceiling at 14.8°C aligns with the need to keep the core zones comfortable while also allowing for some flexibility in case the forecast changes slightly.",
+    "supply_air_ceiling": 14.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.42,
+  "cached": false
+}

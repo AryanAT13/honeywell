@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-26T22:40:00",
+  "prompt_hash": "a0c9d504474a6d11",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -20°C. To ensure that zones do not overheat, especially in the core areas which are sensitive to temperature changes, the supply air temperature should be set at the minimum allowable value of 12.8°C. This will prevent any risk of overheating and maintain comfort levels even on a cold day.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.34,
+  "cached": false
+}

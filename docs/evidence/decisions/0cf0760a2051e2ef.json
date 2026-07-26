@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-29T21:40:00",
+  "prompt_hash": "0cf0760a2051e2ef",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 5.9°C, which is significantly warmer than today's outdoor temperature of 2.6°C. Given that the worst zone (Core_mid) is already at 23.7°C and the forecasted warmest hour will be around 5.9°C, setting a supply air ceiling at 14.0°C would allow for some margin to account for the forecasted temperature rise while still avoiding overheating in the core zones.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.08,
+  "cached": false
+}

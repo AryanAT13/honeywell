@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-20T21:40:00",
+  "prompt_hash": "a82b7e732279e826",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 5.8°C on April 20, which is significantly lower than today's 5.9°C. The forecast indicates that temperatures will drop to 3.6°C by the afternoon, posing a risk of overheating in the core zones. Given this information and considering the worst excursion from the current ceiling (14.8°C) was only 1.52 K over 24 hours, it is prudent to set the supply air temperature ceiling at 13.0°C. This will allow for a buffer against the forecasted drop in outdoor temperatures without risking overheating in the core zones.",
+    "supply_air_ceiling": 13.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.8,
+  "cached": false
+}

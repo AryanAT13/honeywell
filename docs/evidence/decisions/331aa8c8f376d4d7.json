@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-26T21:40:00",
+  "prompt_hash": "331aa8c8f376d4d7",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 27.4°C on August 27th, which is significantly higher than today's outdoor temperature of 21.9°C. Given that the core zones are already at 25.5°C and there is no significant cooling load expected from solar gain or occupancy, it would be prudent to set a ceiling slightly above the current minimum to avoid overcooling during the warmest part of the day. Setting the supply air temperature ceiling at 17.0°C allows for some margin while still ensuring that zones do not overheat.",
+    "supply_air_ceiling": 17.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.7,
+  "cached": false
+}

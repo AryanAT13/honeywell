@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-02T21:40:00",
+  "prompt_hash": "1aa16fcb6515fae3",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below freezing, making it essential to keep the supply air temperature high enough to prevent core zones from overheating due to solar gain and occupant loads.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.51,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-31T21:40:00",
+  "prompt_hash": "ae2889d960120e88",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 7.8°C in the afternoon. The core zone temperature is currently at 22.8°C, which indicates significant cooling demand even on this mild day. To prevent overheating and to take advantage of the forecasted warmth without overcooling, setting the supply air ceiling at 14.0°C would allow for some reheat in the cores while keeping other zones comfortable. This approach balances the need for energy savings with maintaining occupant comfort.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.18,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-05T22:40:00",
+  "prompt_hash": "3cd18c6024f2486a",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to -5.1°C at 3 PM on March 06, which is significantly colder than today's outdoor temperature of -6.5°C. To avoid overheating the core zones during this cold period, the supply air temperature should be set higher to ensure that the cores remain comfortable and do not require excessive reheat. Setting the ceiling at 14.3°C allows for a buffer against the forecasted drop in temperature while still maintaining comfort in the core areas.",
+    "supply_air_ceiling": 14.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.34,
+  "cached": false
+}

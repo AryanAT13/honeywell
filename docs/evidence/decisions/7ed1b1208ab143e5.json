@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-22T21:40:00",
+  "prompt_hash": "7ed1b1208ab143e5",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 26.1°C in the core top zone, which is significantly above the current indoor conditions (24.4°C). Given that the worst excursion over the previous 24-hour period was only 2.63 K when the ceiling was set at 17.5°C, it indicates that the system can still maintain comfort with a slightly higher supply air temperature to avoid overheating during the warmest forecasted hours.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.1,
+  "cached": false
+}

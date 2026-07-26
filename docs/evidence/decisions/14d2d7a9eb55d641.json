@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-15T21:40:00",
+  "prompt_hash": "14d2d7a9eb55d641",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 6.1°C on March 15 at 15:00, which is significantly warmer than today's outdoor temperature of 2.4°C. Given this forecast and considering the worst zone excursion of 23.4°C, it would be prudent to set the supply air ceiling slightly lower to avoid overheating the core zones during the warmest part of the day. Setting the ceiling at 15.0°C will allow for some margin while still being responsive to the forecasted warming conditions.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.84,
+  "cached": false
+}

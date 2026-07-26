@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-04T21:40:00",
+  "prompt_hash": "0daebce773838f6e",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 29.2°C on May 05, which is significantly higher than today's outdoor temperature of 19.1°C. Given that the core zone at 25.8°C is already experiencing cooling and considering the worst excursion was only 1.61 K with a previous ceiling of 15.0°C over 24 hours, it indicates that the current supply air temperature (averaging around 12.8°C) is sufficient to keep the core zones comfortable without excessive reheat. However, to account for the forecasted warmest day and ensure no overheating in the cores, a slightly higher ceiling of 16.0°C should be set. This allows for some margin while still maintaining energy efficiency by avoiding unnecessary cooling and reheating.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.47,
+  "cached": false
+}

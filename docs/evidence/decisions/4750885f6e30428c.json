@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-06T06:40:00",
+  "prompt_hash": "4750885f6e30428c",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -20°C, which is significantly colder than today's temperature of -17.9°C. Given that the interior core zones are already at 21.0°C and there is no significant cooling load expected due to the forecasted conditions, setting the supply air ceiling at 18.0°C will ensure that the cores do not overheat while still allowing for some margin in case of unexpected temperature drops or minor internal heat gains.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.4,
+  "cached": false
+}

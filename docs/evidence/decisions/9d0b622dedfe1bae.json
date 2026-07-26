@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-23T21:40:00",
+  "prompt_hash": "9d0b622dedfe1bae",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 3.2°C and dropping to -0.4°C, indicating significant temperature swings. Given the worst zone is currently at 20.7°C and the forecast's warmest point will be around 3.2°C, setting the ceiling at 18.0°C ensures that zones do not overheat during the peak temperatures while allowing for some margin to account for solar gain and occupant loads. This strategy balances the need to avoid overheating with the potential for cooling in the morning.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.12,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-23T21:40:00",
+  "prompt_hash": "5d76b2cf29309935",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 22.1°C in the afternoon, which is significantly higher than the current outdoor temperature of 8.1°C. Given that the interior core zones are already at 22.4°C and there's no significant cooling load expected from solar gain or occupancy, it would be prudent to set a ceiling slightly above the minimum to avoid overcooling during the warmest part of the day. Setting the supply air temperature to 15.0°C will allow for some margin while still keeping the system responsive to any unexpected heat gains.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.1,
+  "cached": false
+}

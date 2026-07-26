@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-03T21:40:00",
+  "prompt_hash": "4374f3e074d0de58",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 18.2°C on October 06, which is higher than today's outdoor temperature of 10.2°C. Given that the core zone mid is at 24.7°C and the worst excursion is only 0.47 K, it indicates that cooling is not a significant issue even with the current ceiling of 17.3°C. The forecast suggests a warmest day on October 06, so lowering the supply air temperature to 15.8°C would provide sufficient margin for any potential overheating while still allowing for efficient reheat in occupied zones.",
+    "supply_air_ceiling": 15.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.26,
+  "cached": false
+}

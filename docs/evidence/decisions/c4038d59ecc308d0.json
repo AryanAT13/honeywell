@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-13T22:40:00",
+  "prompt_hash": "c4038d59ecc308d0",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping to -4.6°C by midday on the 13th of February, which is significantly below the current outdoor temperature of -1.1°C. Given that the cores are already at 22.0°C and the worst excursion so far has been only 2.87 K (which is within a comfortable range), it's prudent to set the supply air ceiling slightly higher than the minimum to avoid overcooling, especially as the forecast indicates a drop in temperature. Setting the ceiling at 14.5°C allows for some margin and ensures that the cores do not need excessive reheat during the day, while still being prepared for any unexpected warming or cooling events.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.39,
+  "cached": false
+}

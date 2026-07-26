@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-18T21:40:00",
+  "prompt_hash": "9e49d57767974fd9",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures dropping below 16°C in the afternoon. The warmest zone is already at 26.2°C, indicating that cooling will be needed soon. Given the forecast and the need to avoid overheating while also saving energy by not overcooling, setting the ceiling at 14.0°C provides a balance. This temperature allows for some margin in case of slight temperature fluctuations but ensures that zones do not overheat during the warmest part of the day.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.09,
+  "cached": false
+}

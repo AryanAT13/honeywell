@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-11T21:40:00",
+  "prompt_hash": "b7c1bb2e9b68661b",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to 4.5°C by the end of the day, which is well below the minimum cooling load threshold. Given this extreme forecast and the current warmest zone at 24.2°C, it's prudent to set the supply air ceiling at 12.8°C to ensure that the system can effectively manage any potential overheating scenarios without overcooling.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.59,
+  "cached": false
+}

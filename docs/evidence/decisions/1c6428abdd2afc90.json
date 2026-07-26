@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-10T21:40:00",
+  "prompt_hash": "1c6428abdd2afc90",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 26.7°C on June 10th, which is significantly higher than the current outdoor temperature of 12.4°C. Given that the interior core zones are already at 25.0°C and the worst excursion so far has been 2.12 K with a ceiling set at 14.0°C, it's clear that cooling will be needed to prevent overheating. To account for the forecasted warmest temperatures, setting the supply air temperature ceiling at 13.9°C allows for some margin and ensures that the zones are not pushed too close to their comfort limits on the hottest day of the forecast period.",
+    "supply_air_ceiling": 13.9
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.37,
+  "cached": false
+}

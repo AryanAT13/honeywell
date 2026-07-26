@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-07T22:40:00",
+  "prompt_hash": "443d9b4c6694841b",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -13°C, which is well below the outdoor temperature of -19.6°C. Given that the interior core zones are already at 19.1°C and there's no significant solar gain or occupancy load to push them into cooling, setting the supply air ceiling at 14.0°C would result in excessive reheat loads as the cores will likely overcool and need frequent reheating. A lower ceiling of 12.8°C is more appropriate to avoid unnecessary heating while ensuring that the zones do not overcool during the forecasted cold period.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.54,
+  "cached": false
+}

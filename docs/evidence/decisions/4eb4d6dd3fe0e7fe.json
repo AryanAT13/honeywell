@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-13T21:40:00",
+  "prompt_hash": "4eb4d6dd3fe0e7fe",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.2°C on August 14th, which is higher than the current indoor core top temperature at 26.2°C. Given this, it's important to set the supply air ceiling slightly below the forecasted peak to avoid overheating the cores and ensure comfort for all zones.",
+    "supply_air_ceiling": 17.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 4.94,
+  "cached": false
+}

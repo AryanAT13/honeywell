@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-10T21:40:00",
+  "prompt_hash": "3dcc92f9e7cf5d48",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 29.5°C on September 11th, which is significantly higher than today's 20.8°C. Given that the core zone at 25.8°C is already near overheating and considering the forecasted high temperatures, it would be prudent to set the supply air ceiling slightly lower to avoid overcooling during the warmest part of the day. Setting the ceiling at 16.4°C aligns with the forecasted minimum temperature (16.4°C) and ensures that the system is prepared for the upcoming hot weather without risking overheating in the core zones.",
+    "supply_air_ceiling": 16.4
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.67,
+  "cached": false
+}

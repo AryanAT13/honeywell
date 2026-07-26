@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-03T21:40:00",
+  "prompt_hash": "d0f57f81c6cb7236",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 29.6°C on August 05th, which is the day with the highest outdoor temperature in the upcoming period. Given this, we set the supply air ceiling at 12.8°C to ensure that the building can handle the cooling load without overheating the interior core zones.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.3,
+  "cached": false
+}

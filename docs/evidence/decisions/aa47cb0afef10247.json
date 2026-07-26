@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-20T21:40:00",
+  "prompt_hash": "aa47cb0afef10247",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.9°C on July 21st, which is significantly higher than today's outdoor temperature of 21.1°C. Given that the core zone at the top of the building is already at 26.3°C and the worst excursion over the previous day was only 3.00 K (from 18.0 C to 21.0 C), it indicates that cooling is needed even though the current temperature is mild. To prevent overheating, a higher ceiling of 17.5°C should be set to ensure that the supply air remains sufficiently cool throughout the day and avoids overcooling in anticipation of warmer conditions.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.11,
+  "cached": false
+}

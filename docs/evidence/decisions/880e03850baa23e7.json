@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-03T21:40:00",
+  "prompt_hash": "880e03850baa23e7",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 24.2°C on September 03 at 18:00, which is close to the worst-case scenario for cooling loads in the core zones. Given this forecast and considering that the current ceiling of 18.0°C has already resulted in an average supply air temperature of 14.5°C with minimal excursions (worst excursion was 0.00 K), lowering the ceiling to 12.8°C would ensure that the supply air is sufficiently cold to carry away any cooling load, even on a warmest forecast day without risking overheating in the core zones.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.44,
+  "cached": false
+}

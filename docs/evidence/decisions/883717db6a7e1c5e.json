@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-25T21:40:00",
+  "prompt_hash": "883717db6a7e1c5e",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 28.8°C on September 26th, which is significantly higher than today's outdoor temperature of 10.9°C. Given that the core zone mid-point is already at 24.6°C and there are no zones currently asking for cooling, it indicates that the current supply air temperature (averaging around 13.7°C) is sufficient to maintain comfort without overcooling. However, with such a high forecasted maximum temperature, lowering the ceiling slightly will help prevent overheating in case of any unexpected warm spells during the day.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.97,
+  "cached": false
+}

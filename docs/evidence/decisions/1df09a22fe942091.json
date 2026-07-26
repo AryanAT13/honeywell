@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-18T22:40:00",
+  "prompt_hash": "1df09a22fe942091",
+  "plan": {
+    "reason": "The forecast shows a significant drop in temperature from the current day's 1.7°C to -1.9°C over the next few hours, indicating a cold spell. Given that the interior core zones are already at 22.2°C and the forecasted warmest point is only -0.3°C, it would be prudent to set the supply air ceiling at 18.0°C. This ensures that even in the coldest part of the forecast, the supply air will not drop below a comfortable level for the core zones, preventing overheating.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.35,
+  "cached": false
+}

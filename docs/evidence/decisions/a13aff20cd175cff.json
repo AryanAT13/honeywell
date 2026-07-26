@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-31T21:40:00",
+  "prompt_hash": "a13aff20cd175cff",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 17.3°C in the next 24 hours, which is higher than today's outdoor temperature of 4.5°C. Given that the core zone mid is at 23.5°C and the worst excursion over the previous ceiling was only 0.65 K, it indicates that cooling is still needed to maintain comfort. To ensure that the supply air temperature does not drop too low and risk overheating the cores, a higher ceiling of 14.8°C should be set. This allows for some margin in case of mild overcooling while keeping the zones comfortable without excessive reheat loads.",
+    "supply_air_ceiling": 14.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.88,
+  "cached": false
+}

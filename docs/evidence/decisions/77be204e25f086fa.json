@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-18T21:40:00",
+  "prompt_hash": "77be204e25f086fa",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 24.9°C on September 19th, which is significantly higher than today's outdoor temperature of 16.1°C. Given that the core zone at 25.5°C is already uncomfortably hot and considering the forecasted warmth, it would be prudent to set a lower ceiling to avoid overheating. Setting the supply air temperature ceiling at 14.0°C will help maintain comfort in the core zones while still allowing for some flexibility as temperatures moderate or cool slightly.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.66,
+  "cached": false
+}

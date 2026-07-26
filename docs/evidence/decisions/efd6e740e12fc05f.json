@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-28T21:40:00",
+  "prompt_hash": "efd6e740e12fc05f",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 16.6°C on April 29th, which is significantly warmer than today's 5.8°C. Given that the interior core zones are already at 23.2°C and there’s no significant cooling load expected from solar gain or occupancy, it would be prudent to set a higher ceiling to avoid overcooling and unnecessary reheat loads. Setting the supply air temperature ceiling at 14.5°C allows for some margin in case of unexpected warm days while still maintaining comfort without excessive reheating.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.0,
+  "cached": false
+}

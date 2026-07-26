@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-07T21:40:00",
+  "prompt_hash": "0fb1bf8171df0b6d",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 12.0°C in the next 24 hours, which is higher than today's outdoor temperature of 8.9°C. Given that the core zone at 22.8°C is already experiencing cooling and the worst excursion is only 1.00 K (1°C), it indicates that the current ceiling of 15.8°C is sufficient to keep the zones comfortable without overcooling. The forecast suggests a warm period, so lowering the supply air temperature slightly will help manage any potential overheating risks while still allowing for efficient reheat in occupied areas.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.38,
+  "cached": false
+}

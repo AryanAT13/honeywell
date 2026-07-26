@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-05T21:40:00",
+  "prompt_hash": "3785f630931fa364",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 12.4°C in the afternoon, which is significantly warmer than today's outdoor temperature of 10.6°C. Given that the interior core zones are already at 24.1°C and the worst excursion so far has been only 0.43 K over the previous ceiling of 15.8°C, it is clear that lowering the supply air to a higher temperature will prevent overheating in these core areas without risking excessive cooling during the warmest part of the day.",
+    "supply_air_ceiling": 16.2
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.09,
+  "cached": false
+}

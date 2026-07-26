@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-06T21:40:00",
+  "prompt_hash": "b0ae706b1112f562",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 23.8°C on September 07, which is higher than today's outdoor temperature of 22.0°C. Given that the core zone at 25.9°C needs cooling and the worst excursion so far has been 1.73 K, it indicates a need to maintain a slightly cooler supply air temperature to prevent overheating in these zones. Setting the ceiling at 16.8°C will allow for some margin while still being responsive to the forecasted warmest day without risking overcooling on mild days.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.5,
+  "cached": false
+}

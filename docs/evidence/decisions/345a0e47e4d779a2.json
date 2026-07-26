@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-20T21:40:00",
+  "prompt_hash": "345a0e47e4d779a2",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 6.7°C and 7.8°C, indicating that cooling will be needed to keep the interior core zones comfortable. Given the worst excursion of 2.09 K (from 23.5°C) and considering the forecast's warmest hours, it is prudent to set a ceiling slightly below the maximum forecast value to ensure adequate reheat for the hottest parts of the day.",
+    "supply_air_ceiling": 17.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.61,
+  "cached": false
+}

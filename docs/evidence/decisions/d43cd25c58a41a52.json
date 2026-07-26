@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-24T21:40:00",
+  "prompt_hash": "d43cd25c58a41a52",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 28.9°C on May 25th, which is significantly higher than today's outdoor temperature of 15.0°C. Given that the core zones are already at 25.4°C and the worst excursion is only 1.25 K (from 25.4°C to 26.69°C), it indicates a need for cooling but not extreme measures. The forecast suggests a warm period starting tomorrow, so setting the ceiling slightly above today's outdoor temperature will allow some margin for comfort and avoid overcooling during the anticipated warmer days.",
+    "supply_air_ceiling": 17.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.38,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-24T22:40:00",
+  "prompt_hash": "3f621c5db53ce54b",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 4.2°C on February 25th, which is significantly warmer than today's 1.5°C. Given that the interior core zones are already at 22.9°C and the worst excursion so far has been 0.82 K over 24 hours with a ceiling set at 16.5°C, it is clear that cooling will be needed to maintain comfort in these areas. To prevent overheating, we should raise the supply air temperature ceiling to 17.5°C. This allows for some margin above the forecasted warmest outdoor temperature while still ensuring that the zones do not overheat.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.13,
+  "cached": false
+}

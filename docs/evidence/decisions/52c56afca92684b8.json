@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-18T21:40:00",
+  "prompt_hash": "52c56afca92684b8",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures dropping below 16°C by midday. The hottest zone is already at 26.3°C, indicating significant solar gain and occupant loads. To prevent overheating in the core zones, it's best to set the ceiling slightly higher than the current average of 12.8°C but not too high to avoid overcooling the perimeter areas. Setting the supply air temperature ceiling at 15.0°C will allow for some margin and ensure that the system can respond quickly if any zone drifts outside the comfort band, while still avoiding overheating in the core zones.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.23,
+  "cached": false
+}

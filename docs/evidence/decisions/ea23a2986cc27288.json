@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-17T21:40:00",
+  "prompt_hash": "ea23a2986cc27288",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 34.3°C on July 17th, which is significantly higher than today's outdoor temperature of 27.6°C. Given that the worst zone is already at 26.7°C and the forecast indicates warmer days ahead, setting the supply air ceiling to 18.0°C will ensure that zones do not overheat during the warmest part of the day while still allowing for some flexibility in cooling needs.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.94,
+  "cached": false
+}

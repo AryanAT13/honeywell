@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-17T22:40:00",
+  "prompt_hash": "89148a798146179d",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 8.3°C at 3 PM on January 17, which is significantly warmer than today's outdoor temperature of 6.5°C. Given that the core zones are already at 22.0°C and the worst excursion so far has been only 1.98 K (from a forecasted warmest point), it would be prudent to lower the supply air ceiling to ensure comfort without overcooling, especially as solar gain and occupancy will likely push the cores into cooling by afternoon. A ceiling of 14.0°C is chosen to provide sufficient reheat for the core zones while avoiding overheating during the forecasted warmest period.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.65,
+  "cached": false
+}

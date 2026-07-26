@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-21T21:40:00",
+  "prompt_hash": "e759a2e2689c8616",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 20.8°C on September 22nd, which is the warmest day in the upcoming period. Given this, we set the supply air ceiling at 13.7°C to ensure that the system can handle the anticipated cooling load without overheating the core zones.",
+    "supply_air_ceiling": 13.7
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.2,
+  "cached": false
+}

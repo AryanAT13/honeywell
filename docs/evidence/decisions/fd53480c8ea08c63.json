@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-07T22:40:00",
+  "prompt_hash": "fd53480c8ea08c63",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 11.0°C on March 08, which is significantly warmer than today's 6.7°C. Given that the core zone at 22.2°C is already uncomfortably hot and considering the forecasted warmth, it would be prudent to set the supply air ceiling slightly higher to avoid overheating in the worst-case scenario. A reasonable choice for this day would be a ceiling of 15.0°C, allowing some margin for the expected warmest conditions while still maintaining comfort.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.8,
+  "cached": false
+}

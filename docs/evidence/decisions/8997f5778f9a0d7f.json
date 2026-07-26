@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-27T21:40:00",
+  "prompt_hash": "8997f5778f9a0d7f",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 16.0°C at 3 PM, which is close to our current outdoor temperature of 9.2°C. Given that the interior core zones are already at 23.5°C and the worst excursion over the previous 24 hours was only 0.99 K with a ceiling set at 16.0°C, it indicates that cooling is still needed to maintain comfort in these areas. To prevent overheating during the warmest part of the day (forecasted at 16.0°C), we should raise the supply air temperature ceiling slightly above the current outdoor temperature but below the forecast peak. Therefore, setting the ceiling at 13.5°C will allow for some margin and ensure that zones do not overheat while still benefiting from potential reheat savings during cooler periods.",
+    "supply_air_ceiling": 13.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.74,
+  "cached": false
+}

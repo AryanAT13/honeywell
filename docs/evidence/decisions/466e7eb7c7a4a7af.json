@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-23T21:40:00",
+  "prompt_hash": "466e7eb7c7a4a7af",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 25.1°C (19.8 C), which is higher than the current indoor core zone temperature at 25.1°C. Given that solar gain and occupancy will push the cores into cooling by afternoon, it's prudent to set the ceiling slightly below the forecasted peak to avoid overheating. Setting the supply air temperature ceiling at 16.0 C allows for a buffer against the warmest forecast while still maintaining comfort in most zones.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.38,
+  "cached": false
+}

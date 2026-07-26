@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-16T21:40:00",
+  "prompt_hash": "8100b35fe8203354",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 5.5°C, which is significantly warmer than today's -0.2°C. Given that the worst occupied excursion now is 1.62 K and considering the forecast, it would be prudent to set the supply air ceiling slightly higher to account for the expected warming without risking overheating in the core zones.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.0,
+  "cached": false
+}

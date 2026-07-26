@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-15T00:10:00",
+  "prompt_hash": "0238e2c004b802d0",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures ranging from -14.7 to 2.8 degrees Celsius, and considering the warmest zone is at 17.1°C, it's clear that cooling will be needed throughout the day. To ensure comfort without overcooling, we should set the supply air temperature ceiling at 15.0°C. This allows for some margin above the forecasted coldest point (-14.7°C) while keeping the risk of overheating low.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 10.98,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-21T21:40:00",
+  "prompt_hash": "0fbdda6674a748c9",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 7.1°C at 6:00 PM, which is significantly warmer than today's outdoor temperature of 3.9°C. Given that the core zone mid is already at 22.6°C and there are no zones asking for cooling now, it indicates that the current supply air temperature (averaging around 12.8°C) is sufficient to keep the cores comfortable without overcooling. However, with a forecast of warm temperatures ahead, lowering the ceiling will help prevent overheating in the core mid zone. Therefore, setting the supply air ceiling at 14.0°C allows for some flexibility while ensuring that the system can respond to any slight temperature increases or unexpected cooling demands.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.1,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-17T21:40:00",
+  "prompt_hash": "1c6c77a45b68fc5e",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 25.3°C on August 17, which is significantly higher than today's outdoor temperature of 18.0°C. Given that the worst occupied excursion now is at 1.39 K and considering the forecast, it would be prudent to set the supply air ceiling slightly above the current minimum of 12.8°C to account for potential overheating in the core zones during the warmest part of the day. Setting the ceiling at 17.0°C allows for a buffer while still maintaining efficiency by avoiding unnecessary reheat, especially given the forecasted high temperatures.",
+    "supply_air_ceiling": 17.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.49,
+  "cached": false
+}

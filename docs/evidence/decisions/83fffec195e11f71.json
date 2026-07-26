@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-18T22:40:00",
+  "prompt_hash": "83fffec195e11f71",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -5°C, which is well within the range where solar gain and occupancy will push the core zones into cooling by afternoon. To avoid overcooling during these warmest hours in the forecast, I set the ceiling at 12.8°C.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 4.65,
+  "cached": false
+}

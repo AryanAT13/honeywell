@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-01T21:40:00",
+  "prompt_hash": "c98067fc92b57cab",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 23.9°C on May 02, which is higher than the current indoor core zone temperature at 23.9°C. Given this, it's important to set the supply air ceiling slightly below the forecasted peak to avoid overheating the cores and ensure comfort while maximizing energy savings by reducing reheat loads.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.39,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-15T00:10:00",
+  "prompt_hash": "6955bc537fba7a60",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 29.4°C, which is expected to occur in the afternoon. To avoid overheating the core zones, we set the supply air temperature at 17.8°C, allowing for some margin and ensuring that even on the warmest day, the cores will not overheat.",
+    "supply_air_ceiling": 17.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 4.98,
+  "cached": false
+}

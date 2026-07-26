@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-01T22:40:00",
+  "prompt_hash": "6719813111a81d04",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping significantly, starting from -0.2°C at 3 hours and continuing to drop below freezing by the end of the day. Given this extreme cooling load, it is crucial to set the supply air temperature high enough to prevent any overheating in the core zones while allowing for efficient reheat control. Setting the ceiling at 14.5°C will ensure that even with the forecasted drops, the supply air remains above the comfort threshold and avoids overcooling the cores.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.5,
+  "cached": false
+}

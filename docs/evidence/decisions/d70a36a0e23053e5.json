@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-16T22:40:00",
+  "prompt_hash": "d70a36a0e23053e5",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 6.0°C at 3 PM on January 17th, which is significantly below the current outdoor temperature of 8.0°C. Given this extreme warmth and considering that the interior core zones are already at 19.4°C, it would be prudent to set the supply air ceiling slightly higher than the previous 14.0°C to avoid overheating. A reasonable choice would be a ceiling of 15.0°C, allowing for some margin in case the forecast is accurate and outdoor temperatures remain warm.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.37,
+  "cached": false
+}

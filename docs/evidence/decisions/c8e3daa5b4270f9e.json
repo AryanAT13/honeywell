@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-02T22:40:00",
+  "prompt_hash": "c8e3daa5b4270f9e",
+  "plan": {
+    "reason": "The forecast predicts a significant drop in temperature with the warmest hour expected at -5.0°C, indicating a very cold day ahead. To ensure that zones do not overheat and to take advantage of the available cooling capacity from solar gain and occupancy, the supply air temperature should be set at 12.8°C. This will allow for sufficient cooling while minimizing reheat loads during the night and early morning hours when temperatures are expected to drop significantly.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.03,
+  "cached": false
+}

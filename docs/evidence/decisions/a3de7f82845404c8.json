@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-01T22:40:00",
+  "prompt_hash": "a3de7f82845404c8",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures dropping to -7.0°C by midday on February 2nd, which is significantly below the current outdoor temperature of -13.9°C. Given that the interior core zones are already at 22.1°C and the worst excursion so far has been 4.98 K over a day with an average supply air temperature of 12.8°C, lowering the ceiling to 16.0°C will allow for sufficient reheat in the cores without overheating them during the forecasted warmest period. This setting also accounts for the worst-case scenario where zones might need some additional cooling due to solar gain and occupancy effects.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.69,
+  "cached": false
+}

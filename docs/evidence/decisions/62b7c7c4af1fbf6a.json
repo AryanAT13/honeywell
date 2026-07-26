@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-27T22:40:00",
+  "prompt_hash": "62b7c7c4af1fbf6a",
+  "plan": {
+    "reason": "The forecast shows a cold day with temperatures dropping below freezing at times. Given that the core zones are already at 21.8°C, which is significantly warmer than the forecasted minimum of -7.5°C, it's clear that cooling will be needed to maintain comfort in these areas. To avoid overcooling and unnecessary reheat, a ceiling temperature of 14.0°C has been chosen. This allows for some margin above the expected coldest temperatures while ensuring that the zones do not experience excessive heating due to solar gain or occupant activity.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.2,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-28T21:40:00",
+  "prompt_hash": "56743df0bbaf4ea6",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 23.5°C on June 29th, which is higher than today's outdoor temperature of 22.0°C. Given that the core zone at the top of the building is already at 26.3°C and there are no zones asking for cooling now, it indicates a need to raise the supply air temperature ceiling to prevent overheating in the cores while still allowing the system to respond quickly if any zones drift out of comfort range. Setting the ceiling at 17.8°C aligns with the forecasted warmest day and ensures that the core zones are not overcooled, thus reducing unnecessary reheat loads.",
+    "supply_air_ceiling": 17.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.32,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-16T21:40:00",
+  "prompt_hash": "005c6a442da4e243",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 26.6°C in the Perimeter_top_ZN_3, which is close to the current indoor core zone temperature. Given this information and considering that the forecast includes several days with temperatures above 20°C, it's prudent to set the supply air ceiling at 15.0°C. This will ensure that the zones are not overheating during the warmest part of the day while still allowing for effective reheat in cooler periods.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.18,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-05T22:40:00",
+  "prompt_hash": "dbb5c12bd5212122",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -16°C by midday on January 06th, which is significantly colder than today's temperature of -8.9°C. Given that the cores are already at 22.2°C and the worst excursion over the previous 24 hours was only 5.13 K with a ceiling set at 14.0°C, lowering the supply air to 12.8°C will ensure that the zones do not overheat as temperatures drop further. This is within the valid range of 12.8 to 18.0°C and aligns with the goal of avoiding chilling air only to reheat it again.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 11.35,
+  "cached": false
+}

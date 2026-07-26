@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-28T21:40:00",
+  "prompt_hash": "3529b62a3f2da694",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 28.3°C on May 29, which is significantly higher than today's 18.5°C. Given that the core zone at 25.7°C will likely overheat if we maintain the previous ceiling of 16.4°C, it is prudent to raise the supply air temperature ceiling to a level where the system can still meet cooling needs without overheating the cores. Setting the ceiling at 18.0°C ensures that even on the warmest forecast day, the core zones will not overheat and allows for effective reheat in occupied areas.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.34,
+  "cached": false
+}

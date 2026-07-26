@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-10T21:40:00",
+  "prompt_hash": "67c320ec0ad02f07",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to -2.7°C, which is colder than the current outdoor temperature of 1.7°C. Given this extreme cold, it's important to set the supply air temperature high enough to prevent overheating and ensure comfort for all zones. The worst zone currently at 21.6°C needs cooling, but with such a forecasted drop in temperature, setting the ceiling at 18.0°C will allow for sufficient reheat during the warmest hours of the day without risking overcooling or discomfort due to extreme cold.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.36,
+  "cached": false
+}

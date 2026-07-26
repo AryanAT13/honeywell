@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-28T21:40:00",
+  "prompt_hash": "f0d5eaf1ee108cfa",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to -2.0°C by midday on March 29, which is significantly below the current outdoor temperature of 7.6°C. Given this extreme cold, setting the supply air ceiling at 18.0°C would ensure that the building does not overheat and provides adequate reheat for the perimeter zones to maintain comfort without risking excessive cooling in the core areas.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.61,
+  "cached": false
+}

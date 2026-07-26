@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-17T00:10:00",
+  "prompt_hash": "393f30b0e2041995",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 12.3°C at 6:00 AM, which is within the valid range of 12.8 to 18.0°C. Given that the interior core zones are already at 18.9°C and there's no significant cooling load expected due to the forecasted temperatures, it would be prudent to set a higher ceiling to avoid unnecessary reheat loads while still ensuring comfort. Setting the supply air temperature ceiling at 16.5°C allows for some margin in case of slight temperature fluctuations or unexpected heat gains without risking overheating.",
+    "supply_air_ceiling": 16.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.17,
+  "cached": false
+}

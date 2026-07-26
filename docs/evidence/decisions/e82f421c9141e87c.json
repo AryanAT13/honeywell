@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-30T21:40:00",
+  "prompt_hash": "e82f421c9141e87c",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 17.4°C in the next 24 hours, which is higher than today's outdoor temperature of 10.1°C. Given that the core zone mid is at 22.9°C and there are no significant cooling requests from occupied zones, it indicates that the current supply air temperature (averaging around 12.8°C) is already sufficient to keep the cores comfortable without overcooling. The forecast suggests a warm day with temperatures reaching up to 17.4°C, which would require a higher ceiling to prevent overheating in the core zones. Therefore, setting the supply air ceiling at 15.9°C will allow for some flexibility and ensure that the system can handle any slight temperature fluctuations without overcooling the cores.",
+    "supply_air_ceiling": 15.9
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.65,
+  "cached": false
+}

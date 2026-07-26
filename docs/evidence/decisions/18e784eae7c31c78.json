@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-06T22:40:00",
+  "prompt_hash": "18e784eae7c31c78",
+  "plan": {
+    "reason": "The forecast shows a warm day with temperatures peaking at 6.4°C, which is significantly warmer than today's -0.6°C. Given that the worst occupied excursion now is only 2.89 K and there are no zones asking for cooling, it indicates that the current supply air temperature of 14.3°C is sufficient to meet the cooling needs without overcooling or overheating any zone. Therefore, maintaining a ceiling at 14.3°C will allow the system to save on reheat energy while ensuring comfort and avoiding unnecessary chilling.",
+    "supply_air_ceiling": 14.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.14,
+  "cached": false
+}

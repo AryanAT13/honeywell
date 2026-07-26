@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-22T21:40:00",
+  "prompt_hash": "32f6d22f3204b8df",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 25.6°C (21.6°C at 3 PM), which is significantly higher than today's outdoor temperature of 17.8°C. Given that the core zone is already at 25.6°C, and considering the worst excursion of 1.37 K from its normal operating range, it indicates a need to reduce the supply air temperature ceiling to prevent overheating. Setting the ceiling at 14.9°C aligns with the forecasted warmest point (21.6°C) while also allowing for some margin to account for any unexpected increases in core zone temperatures.",
+    "supply_air_ceiling": 14.9
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.62,
+  "cached": false
+}

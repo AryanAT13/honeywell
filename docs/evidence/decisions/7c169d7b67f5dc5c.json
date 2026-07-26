@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-02T22:40:00",
+  "prompt_hash": "7c169d7b67f5dc5c",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 2.4°C and -1.4°C, indicating significant temperature swings. The core zone is already at 22.6°C, which suggests it will likely need cooling as the day progresses. Given the forecast's warmth and considering the worst excursion of 3.25 K over a previous lower ceiling, setting the supply air to 14.5°C would not be sufficient to prevent overheating in the core zones. Therefore, to ensure that the cores do not overheat, I choose a higher ceiling at 16.0°C.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.1,
+  "cached": false
+}

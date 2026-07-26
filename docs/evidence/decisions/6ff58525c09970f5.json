@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-11T21:40:00",
+  "prompt_hash": "6ff58525c09970f5",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 19.2°C in the afternoon, which is significantly higher than the current outdoor temperature of 11.1°C. Given that the interior core zones are already at 24.6°C and the worst excursion is only 0.35 K, it's clear that cooling will be needed to maintain comfort. To avoid overheating during the warmest part of the day, a supply air temperature ceiling of 14.8°C should be set. This allows for some margin in case the forecast predicts slightly warmer temperatures and ensures that zones do not overheat while still maximizing energy savings by keeping reheat loads low.",
+    "supply_air_ceiling": 14.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.66,
+  "cached": false
+}

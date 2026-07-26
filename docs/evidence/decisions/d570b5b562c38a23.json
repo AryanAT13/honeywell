@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-13T21:40:00",
+  "prompt_hash": "d570b5b562c38a23",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 9.9°C at 3 PM on October 14, which is significantly warmer than today's outdoor temperature of 9.2°C. Given that the core zone mid is already at 24.1°C and there are no significant cooling requests from other zones, lowering the supply air temperature to 15.0°C will help prevent overheating in the core while still allowing for some flexibility as temperatures moderate throughout the day.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.0,
+  "cached": false
+}

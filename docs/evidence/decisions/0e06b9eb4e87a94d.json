@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-27T21:40:00",
+  "prompt_hash": "0e06b9eb4e87a94d",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -10°C, which is expected to cause significant cooling loads in the interior core zones. To ensure that these zones do not overheat and to take advantage of the low outdoor temperature for reheat savings, I set the supply air ceiling at 12.8°C.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.44,
+  "cached": false
+}

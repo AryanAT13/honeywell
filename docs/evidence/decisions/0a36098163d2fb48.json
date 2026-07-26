@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-21T21:40:00",
+  "prompt_hash": "0a36098163d2fb48",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 29.6°C on July 22nd, which is significantly higher than today's outdoor temperature of 21.7°C. Given that the worst occupied excursion now is at 1.88 K and there are no zones currently asking for cooling, it would be prudent to set a ceiling slightly above the current average supply air temperature (12.8°C) but not too high to avoid overheating during the warmest forecasted period.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.2,
+  "cached": false
+}

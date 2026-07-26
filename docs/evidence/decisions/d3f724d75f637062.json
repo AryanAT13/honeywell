@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-29T21:40:00",
+  "prompt_hash": "d3f724d75f637062",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 25.5°C in the core zone at 25.5°C, which is already uncomfortably high. Given that the worst excursion over the previous 24-hour period was only 2.73 K (from 12.8°C to 15.5°C), and considering the forecast's warmest temperature of 25.5°C in the core zone, it would be prudent to set a higher ceiling to avoid overheating. Setting the supply air ceiling at 16.0°C will allow for some margin while still being within the valid range of 12.8 to 18.0°C.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.18,
+  "cached": false
+}

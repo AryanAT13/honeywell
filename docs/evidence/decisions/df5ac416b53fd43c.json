@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-22T22:40:00",
+  "prompt_hash": "df5ac416b53fd43c",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 15.9°C on February 23rd, which is the highest in the forecast period. Given this, it's important to set the supply air temperature high enough to avoid overheating the core zones while still taking advantage of the mild outdoor conditions. Setting the ceiling at 14.0°C will allow for a comfortable environment without overcooling during the warmest part of the day.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.34,
+  "cached": false
+}

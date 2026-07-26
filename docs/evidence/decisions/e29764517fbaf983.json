@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-18T21:40:00",
+  "prompt_hash": "e29764517fbaf983",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 28.5°C on June 19th, which is significantly higher than the current outdoor temperature of 13.3°C. Given that the interior core zones are already at 25.7°C and there's no significant cooling load expected from solar gain or occupancy, it would be prudent to set a supply air ceiling slightly above the minimum threshold to avoid overheating the cores while still allowing for some flexibility in case of unexpected warm spells.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.52,
+  "cached": false
+}

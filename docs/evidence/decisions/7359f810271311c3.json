@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-24T21:40:00",
+  "prompt_hash": "7359f810271311c3",
+  "plan": {
+    "reason": "The forecast shows a warm day with temperatures peaking at 6.5°C, which is significantly warmer than today's outdoor temperature of 2.2°C. Given that the worst zone (Core_mid) is already at 22.9°C and the forecast indicates a warm afternoon, it would be prudent to set the supply air ceiling slightly higher to avoid overheating in the core zones during the peak warming period. Setting the ceiling at 15.0°C allows for some margin while still being within the valid range of 12.8 to 18.0°C.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.88,
+  "cached": false
+}

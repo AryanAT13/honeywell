@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-26T21:40:00",
+  "prompt_hash": "bcc23b409489eb60",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 29.4°C on June 27th, which is significantly higher than today's 21.5°C. Given that the interior core zones are already at 25.8°C and the worst excursion is only 1.64 K (from 23.6°C), it indicates that cooling is needed but not excessive. The forecast suggests a warmest period on June 27th, so to ensure comfort without overcooling, I set the supply air ceiling at 15.8°C. This allows for some margin in case of unexpected heat spikes while keeping reheat loads manageable.",
+    "supply_air_ceiling": 15.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.98,
+  "cached": false
+}

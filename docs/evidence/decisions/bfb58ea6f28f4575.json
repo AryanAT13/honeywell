@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-13T21:40:00",
+  "prompt_hash": "bfb58ea6f28f4575",
+  "plan": {
+    "reason": "The forecast shows multiple warm days ahead, including the warmest hour of 26.1 C in the core zone. Given the worst excursion over the previous lower ceiling was 2.39 K, lowering the supply air temperature to 15.0 C would allow for a more stable and comfortable environment while still meeting cooling needs on the warmest days.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 2,
+  "latency_s": 14.02,
+  "cached": false
+}

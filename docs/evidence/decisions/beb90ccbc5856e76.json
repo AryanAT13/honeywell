@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-09T22:40:00",
+  "prompt_hash": "beb90ccbc5856e76",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below freezing at times, indicating that cooling loads will be minimal to non-existent. Given this, it is prudent to set the supply air temperature as high as possible within the valid range of 12.8 to 18.0 C without risking overheating in the core zones.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.97,
+  "cached": false
+}

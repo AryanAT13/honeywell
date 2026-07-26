@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-24T22:40:00",
+  "prompt_hash": "22167f505ece37e9",
+  "plan": {
+    "reason": "The forecast shows a significant drop in temperature from today's 1.7°C to -6.4°C, indicating a cold day with minimal heating demand. Given that the interior core zones are already at 22.2°C and the worst excursion is only 2.51 K (from 18.0°C), lowering the ceiling to 12.8°C will ensure that the supply air stays comfortably cool without risking overheating, aligning with the forecasted conditions.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.01,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-08T22:40:00",
+  "prompt_hash": "d4f094c513c1ad74",
+  "plan": {
+    "reason": "The forecast shows a warm day with temperatures ranging from -3.8 to 5.1 degrees Celsius, indicating that cooling will be needed throughout most of the day. The worst zone excursion is currently at 3.55 K and the core zones are already slightly above comfort due to solar gain and occupancy. Given this context, setting a supply air temperature ceiling at 14.0 C allows for sufficient cooling while minimizing reheat loads in the occupied areas, especially during the warmest forecasted hours.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.21,
+  "cached": false
+}

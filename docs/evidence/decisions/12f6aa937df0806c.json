@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-14T21:40:00",
+  "prompt_hash": "12f6aa937df0806c",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 18.0 C tomorrow afternoon, which is higher than today's outdoor temperature of 8.9 C. Given that the interior core zones are already at 23.4 C and the worst excursion so far has been 0.00 K, it indicates that cooling is not necessary yet. The forecast suggests a warm day with temperatures peaking around 16.1 to 18.0 C. To avoid overcooling and potential overheating of core zones, I set the supply air ceiling at 14.5 C. This allows for some margin in case the temperature rises slightly above expectations but still keeps the system from cooling too aggressively.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 10.71,
+  "cached": false
+}

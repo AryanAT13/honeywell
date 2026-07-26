@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-06T22:40:00",
+  "prompt_hash": "d085256fdf06df1a",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -20°C, which is significantly colder than today's temperature of -18.0°C. Given that the cores are already at 22.0°C and the worst excursion was only 5.62 K over the previous low ceiling of 12.8°C, it would be prudent to set a higher supply air temperature to avoid overheating the core zones during the forecasted cold period. Setting the ceiling at 14.0°C will allow for some margin and still keep the cores within comfortable limits while maximizing energy savings by reducing reheat loads.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.96,
+  "cached": false
+}

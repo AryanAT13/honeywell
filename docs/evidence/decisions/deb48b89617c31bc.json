@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-06T21:40:00",
+  "prompt_hash": "deb48b89617c31bc",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 14.7°C on the fourth hour (3 h step), which is close to the current outdoor temperature of 13.1°C. Given that the core zone mid is at 21.8°C and there are no significant cooling requests, it's prudent to set the ceiling slightly below the forecast high point to avoid overheating during the warmest part of the day. Setting the supply air ceiling at 14.0°C will allow for some margin while still being responsive to any unexpected warming in the core zones.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.62,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-05T21:40:00",
+  "prompt_hash": "c16d02577a3fd181",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor air temperature of 30.6 C on July 05 at 15:40, which is significantly higher than the current outdoor temperature of 27.2 C. Given that the forecast predicts warmer temperatures throughout the day and considering the worst zone excursion of 2.46 K (which indicates a need for cooling), it's prudent to set the ceiling slightly lower to avoid overheating the core zones. Setting the supply air ceiling at 15.8 C would allow for some margin while still being within the valid range.",
+    "supply_air_ceiling": 15.8
+  },
+  "error": null,
+  "attempts": 2,
+  "latency_s": 15.99,
+  "cached": false
+}

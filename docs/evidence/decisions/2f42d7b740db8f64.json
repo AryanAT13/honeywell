@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-24T21:40:00",
+  "prompt_hash": "2f42d7b740db8f64",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 28.9°C on July 25th, which is the day with the highest outdoor temperature in the forecast period. Given this, we should set the supply air temperature ceiling at the lower end to ensure that zones do not overheat during the hottest part of the day.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.39,
+  "cached": false
+}

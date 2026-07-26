@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-18T21:40:00",
+  "prompt_hash": "2105eacccc4c56c6",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 13.8°C on October 19th, which is significantly warmer than today's 5.7°C. Given that the interior core zones are already at 23.4°C and the worst excursion so far has been 0.67 K, it indicates that cooling is needed to maintain comfort. To avoid overheating in these core areas, a higher supply air temperature ceiling of 16.8°C should be set. This allows for some margin above the forecasted warmest day while ensuring that zones do not overcool and risk chilling if temperatures drop unexpectedly.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.85,
+  "cached": false
+}

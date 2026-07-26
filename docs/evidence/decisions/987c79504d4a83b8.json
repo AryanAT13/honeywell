@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-01T21:40:00",
+  "prompt_hash": "987c79504d4a83b8",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 25.1°C on July 02 at 3h, which is significantly higher than the current outdoor temperature of 16.8°C. Given that the core zone is already at 25.0°C and the worst excursion so far has been 1.95 K over a day with an average supply air temperature of 12.8°C, it's clear we need to raise the ceiling to prevent overheating in the cores. Setting the ceiling at 17.3°C aligns with the forecasted warmest point and ensures that zones do not drift too far above their comfort limits, thus avoiding unnecessary reheat loads.",
+    "supply_air_ceiling": 17.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.39,
+  "cached": false
+}

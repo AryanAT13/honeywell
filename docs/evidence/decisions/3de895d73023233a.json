@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-08T22:40:00",
+  "prompt_hash": "3de895d73023233a",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 9.8°C and dropping to -0.3°C, indicating significant temperature swings. The core zone is already at 23.0°C despite the current outdoor air temperature of 2.8°C, suggesting it will need cooling due to solar gain and occupancy loads. Given these conditions, setting a supply air ceiling at 15.0°C would likely result in overheating as the day progresses. To avoid this, we should set the ceiling slightly higher to allow for more flexibility during temperature swings. Therefore, I choose a supply air ceiling of 16.8°C.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.87,
+  "cached": false
+}

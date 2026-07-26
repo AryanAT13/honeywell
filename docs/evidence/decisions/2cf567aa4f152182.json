@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-09T21:40:00",
+  "prompt_hash": "2cf567aa4f152182",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 21.6°C on May 10th, which is significantly higher than today's outdoor temperature of 9.6°C. Given that the core zone mid is at 24.2°C and there are no zones currently asking for cooling, it indicates that the current supply air temperature (averaging 13.1°C over the previous day) is already quite cold to prevent overheating in the worst-case scenario of a warmest forecast day. To ensure that the building does not overheat during the predicted warmest period and to take advantage of potential reheat savings, I choose a supply air ceiling of 14.0°C. This temperature allows for some flexibility while keeping the risk of overheating low given the forecasted conditions.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.18,
+  "cached": false
+}

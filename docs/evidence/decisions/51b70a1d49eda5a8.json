@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-17T21:40:00",
+  "prompt_hash": "51b70a1d49eda5a8",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 4.1°C on the 5th hour, which is expected to cause significant cooling loads in the interior core zones. To avoid overheating these zones, it's best to set the supply air ceiling at 12.8°C, ensuring that even under the warmest forecast conditions, the supply air temperature will be sufficiently cold to carry away the day’s cooling load without risking overcooling.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.83,
+  "cached": false
+}

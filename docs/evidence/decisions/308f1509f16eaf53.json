@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-28T21:40:00",
+  "prompt_hash": "308f1509f16eaf53",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures ranging from -9.4 to 1.2 degrees Celsius, with the warmest part of the day expected around midday when the temperature is likely to be around 2-3 degrees Celsius higher than the current outdoor air temperature. Given that the worst zone currently at 21.0 C needs reheat and considering the forecast's warmth, it would be prudent to set a supply air ceiling slightly above the minimum of 12.8°C to avoid overheating the core zones while still allowing for effective cooling during the warmest part of the day.",
+    "supply_air_ceiling": 13.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.11,
+  "cached": false
+}

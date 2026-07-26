@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-21T21:40:00",
+  "prompt_hash": "5cac7693d4c61653",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 6.3°C on April 22nd, which is significantly warmer than today's 3.9°C. Given that the interior core zones are already at 23.5°C and the worst excursion so far has been 1.25 K (from 22.25°C), lowering the supply air temperature to 14.0°C will prevent overheating in these zones while still allowing for some flexibility during warmer forecasts. This setting also aligns with the forecasted warmest temperatures and ensures that the system can respond effectively if any zone drifts outside the comfort band.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.51,
+  "cached": false
+}

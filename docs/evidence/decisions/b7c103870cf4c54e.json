@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-06T21:40:00",
+  "prompt_hash": "b7c103870cf4c54e",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 11.9°C on May 07, which is higher than today's outdoor temperature of 9.3°C. Given that the core zone at 24.9°C is already uncomfortably hot and considering the forecasted warmth, it would be prudent to set the supply air ceiling slightly lower to avoid overheating. Setting the ceiling at 16.8°C will allow for some margin while still being cautious of the upcoming warmest day.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.57,
+  "cached": false
+}

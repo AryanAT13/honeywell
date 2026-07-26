@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-25T21:40:00",
+  "prompt_hash": "3d34d110330b15ec",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures ranging from -5.0°C to 3.6°C, with the coldest part of the day being around -1.5°C and the warmest at 3.6°C. Given that the core_bottom zone is already at 18.2°C and there are no significant cooling requests currently, it's important not to set a ceiling too low as this could lead to overheating in the core zones during the warmer parts of the day. The forecast suggests a warm afternoon with temperatures around 3.6°C, which would be uncomfortable for occupants if the supply air is too cold. Therefore, setting the ceiling at 15.0°C will allow some margin for the warmest part of the day while avoiding overheating in the core zones.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.88,
+  "cached": false
+}

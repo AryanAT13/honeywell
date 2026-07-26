@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-15T21:40:00",
+  "prompt_hash": "67881e7da4a9666e",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 16.6°C on May 15, which is higher than today's outdoor temperature of 8.0°C. Given that the core zone at 24.3°C is already uncomfortably hot and considering the forecasted warmth, it would be prudent to set the supply air ceiling slightly above the current minimum of 12.8°C but not too high to avoid overcooling during the warmest part of the day. A reasonable choice would be around 15.0°C, allowing for some margin while keeping reheat loads manageable.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.41,
+  "cached": false
+}

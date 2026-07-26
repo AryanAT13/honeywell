@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-17T21:40:00",
+  "prompt_hash": "acd2644baee952ee",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 26.3°C in the afternoon, which is higher than the current core top temperature at 26.1°C. Given that we need to account for the worst-case scenario where zones might drift outside the comfort band and the forecasted warmth, setting the ceiling at 15.3°C would not be sufficient as it could lead to overheating in the cores. Therefore, a higher ceiling of 17.0°C is chosen to ensure that even on the warmest day, the supply air temperature remains sufficiently cool to avoid overheating and allows for proper reheat when needed.",
+    "supply_air_ceiling": 17.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.88,
+  "cached": false
+}

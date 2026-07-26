@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-20T22:40:00",
+  "prompt_hash": "219ed0ded9ef455e",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 8.4°C and 11.3°C, indicating that cooling will be needed throughout the day. The worst zone is currently at 22.4°C but only needs minor reheat to stay comfortable. Given the forecast's warmth, it’s important to set the ceiling high enough to avoid overheating while still allowing for effective cooling. Setting the supply air temperature ceiling at 15.0°C will ensure that zones are not overcooled and can maintain comfort without excessive reheats, aligning with the goal of minimizing electrical loads.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.85,
+  "cached": false
+}

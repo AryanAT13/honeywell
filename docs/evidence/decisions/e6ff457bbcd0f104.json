@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-30T21:40:00",
+  "prompt_hash": "e6ff457bbcd0f104",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 5.6°C on March 31st, which is significantly warmer than today's 2.2°C and the current forecast. Given that the core zone is already at 23.1°C, it will likely continue to overheat if we maintain the previous ceiling of 14.0°C. To prevent overheating, a higher supply air temperature is needed. Setting the ceiling at 16.5°C allows for some margin and ensures that even on the warmest forecast day (5.6°C), the core zone will not exceed comfortable limits.",
+    "supply_air_ceiling": 16.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.23,
+  "cached": false
+}

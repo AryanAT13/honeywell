@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-17T21:40:00",
+  "prompt_hash": "5dad320b73a0465e",
+  "plan": {
+    "reason": "The forecast shows a cold day with temperatures dropping below freezing at times. Given that the core mid zone is already at 23.0°C, which is significantly warmer than the current outdoor temperature of -5.0°C, and considering the forecast's warmest point will be around 4.0°C, it would be prudent to set a higher ceiling to avoid overcooling and unnecessary reheat loads. A supply air temperature of 16.8°C seems appropriate as it allows for some margin in case temperatures drop further but still keeps the system from overheating during the warmest forecasted period.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.19,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-08T21:40:00",
+  "prompt_hash": "73fe28333963e015",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -10°C, which is expected to cause significant cooling loads in the interior core zones. To prevent overheating and ensure comfort, setting the supply air temperature at 12.8°C would be too low given the anticipated extreme conditions. A higher ceiling of 16.5°C allows for sufficient reheat to maintain comfortable temperatures without overcooling the cores.",
+    "supply_air_ceiling": 16.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.72,
+  "cached": false
+}

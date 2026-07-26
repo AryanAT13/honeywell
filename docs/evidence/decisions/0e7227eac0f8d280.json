@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-15T21:40:00",
+  "prompt_hash": "0e7227eac0f8d280",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 30.9°C on June 17th, which is the day with the highest outdoor temperature in the upcoming period. Given this, we set the supply air ceiling at 12.8°C to ensure that even under the most extreme conditions, the system can carry away the cooling load without overheating the interior core zones.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.76,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-20T21:40:00",
+  "prompt_hash": "c6e4f554fd9baa2a",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 29.6°C on August 21st, which is significantly higher than today's outdoor temperature of 19.6°C. Given this extreme warmth and considering that the worst excursion over the previous 24 hours was only 0.00 K at a ceiling of 18.0°C, it would be prudent to set the supply air ceiling slightly lower to ensure comfort without risking overheating. Setting the ceiling at 17.5°C will allow for some margin and still provide adequate cooling during the warmest forecasted period.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.36,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-12T21:40:00",
+  "prompt_hash": "10f421c41ffa82ae",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 25.6°C on September 13, which is significantly higher than today's outdoor temperature of 13.9°C. Given that the core zone at 25.6°C indicates cooling demand and considering the forecasted warmth, it would be prudent to set the supply air ceiling slightly above the current average of 12.9°C to account for potential overheating in the worst-case scenario. A reasonable choice is to set the ceiling at 14.0°C, which allows for some margin while still being responsive to the forecasted warm conditions.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.53,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-31T21:40:00",
+  "prompt_hash": "9d429fb08e2559d4",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 25.4°C on May 31 at 6 PM, which is significantly warmer than today's outdoor temperature of 17.9°C and the mild forecast conditions. Given that the worst occupied excursion is currently 1.80 K (1.8°C) above the current ceiling of 16.6°C, it indicates that some zones are already at risk of overheating if we maintain this ceiling. To prevent overcooling and ensure comfort while taking advantage of forecasted mild conditions, a supply air temperature ceiling of 17.5°C is chosen. This allows for a slight adjustment to the current cooling load without risking overheating in the worst-case scenario.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.71,
+  "cached": false
+}

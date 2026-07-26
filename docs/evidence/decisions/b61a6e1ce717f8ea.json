@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-27T21:40:00",
+  "prompt_hash": "b61a6e1ce717f8ea",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 29.6°C on August 28th, which is significantly higher than today's outdoor temperature of 22.2°C. Given this extreme warmth and considering that the worst excursion over the previous 24 hours was only 0.00 K at a ceiling of 17.0°C, it would be prudent to set the supply air ceiling slightly warmer to avoid overheating the core zones while still allowing for some margin in case of unexpected warm spells. A reasonable choice would be to set the ceiling at 18.0°C, which aligns with the forecasted conditions and ensures that the system can handle the anticipated warmth without risking overcooling or excessive reheat loads.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.85,
+  "cached": false
+}

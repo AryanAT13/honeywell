@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-07T21:40:00",
+  "prompt_hash": "be2f6cd78d855d00",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to -5.0 C by midnight on December 7th, which is significantly colder than today's outdoor temperature of 6.0°C. Given this extreme cold, it would be prudent to set the supply air ceiling at 12.8°C to ensure that the building does not overheat and to avoid unnecessary reheat in the core zones.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.25,
+  "cached": false
+}

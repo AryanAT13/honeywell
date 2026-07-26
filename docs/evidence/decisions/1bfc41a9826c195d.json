@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-12T21:40:00",
+  "prompt_hash": "1bfc41a9826c195d",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 4.5°C and dropping to -1.0°C, indicating significant temperature swings. Given the warmest zone is already at 21.0°C and there are no zones currently asking for cooling, it's important to set the ceiling high enough to avoid overheating while allowing the system to respond quickly if any zone drifts outside the comfort band. Setting the supply air ceiling at 15.3°C (average of -1.0°C + 21.0°C) provides a buffer against temperature swings and ensures that zones do not overheat, especially with the forecasted warmest temperatures.",
+    "supply_air_ceiling": 15.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.96,
+  "cached": false
+}

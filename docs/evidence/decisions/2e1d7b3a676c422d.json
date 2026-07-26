@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-23T21:40:00",
+  "prompt_hash": "2e1d7b3a676c422d",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 31.0°C on July 24th, which is significantly higher than today's outdoor temperature of 25.0°C. Given this extreme warmth and considering that the worst excursion over the previous 24 hours was only 0.00 K at a ceiling of 18.0°C, it would be prudent to set the supply air ceiling slightly lower to ensure comfort without risking overheating in the core zones. A reasonable choice would be to set the ceiling at 17.5°C, allowing for some margin while still being responsive to any potential temperature spikes.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.49,
+  "cached": false
+}

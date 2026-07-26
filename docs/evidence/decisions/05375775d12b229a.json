@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-04T21:40:00",
+  "prompt_hash": "05375775d12b229a",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures ranging from -3.7°C to 6.6°C, with the warmest part of the day expected around midday when the temperature is around 6.6°C. The core zone at 22.4°C indicates that cooling is needed even on this mild day due to solar gain and occupancy loads. To avoid overheating while still taking advantage of forecasted cool outdoor air, a ceiling of 15.0°C has been chosen. This allows the supply air temperature to rise slightly during the warmest part of the day without exceeding comfort limits, thus reducing reheat demand and saving energy.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.52,
+  "cached": false
+}

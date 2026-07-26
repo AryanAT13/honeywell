@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-14T21:40:00",
+  "prompt_hash": "4f48d28e697e5062",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 26.7°C on August 15th, which is significantly higher than today's outdoor temperature of 19.4°C. Given that the interior core zones are already at 25.6°C and the worst excursion is only 0.00 K over the previous ceiling of 17.8°C, it indicates a need to raise the supply air temperature to prevent overheating in these zones during the warmest part of the forecast period.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.63,
+  "cached": false
+}

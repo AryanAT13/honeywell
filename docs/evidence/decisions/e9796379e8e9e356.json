@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-20T22:40:00",
+  "prompt_hash": "e9796379e8e9e356",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 8.4°C in the afternoon, which is significantly warmer than today's outdoor temperature of -1.1°C. Given that the worst occupied excursion now is 2.62 K and there are no zones asking for cooling under the previous ceiling of 15.0°C, it indicates that the current supply air temperature (averaging around 12.8°C) is sufficient to meet the cooling needs without overcooling. However, with the forecast indicating a warm day ahead, setting the ceiling at 17.6°C would allow for some margin and prevent overheating in the core zones during the peak afternoon temperatures of 8.4°C. This approach balances the need to avoid overcooling while preparing for warmer conditions.",
+    "supply_air_ceiling": 17.6
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.9,
+  "cached": false
+}

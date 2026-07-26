@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-01T21:40:00",
+  "prompt_hash": "1583e437191256b1",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 6.3°C on April 02nd, which is significantly warmer than today's outdoor temperature of 1.5°C. Given this forecast and considering the need to avoid overheating in core zones while maximizing energy savings through reduced reheat loads, setting the supply air ceiling at 14.0°C would be appropriate. This allows for some margin above the minimum required temperature (12.8°C) but still keeps the system responsive to potential warm afternoons.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.46,
+  "cached": false
+}

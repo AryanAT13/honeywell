@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-02T00:10:00",
+  "prompt_hash": "ee524a3225488232",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 4.8°C in the next 24 hours, which is significantly warmer than today's -2.1°C outdoor temperature and the current worst zone excursion of 0.00 K. Given this forecast, it is prudent to set the supply air ceiling at 18.0°C to ensure that zones do not overheat during the warmest part of the day.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.38,
+  "cached": false
+}

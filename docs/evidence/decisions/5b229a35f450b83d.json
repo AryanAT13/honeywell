@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-16T21:40:00",
+  "prompt_hash": "5b229a35f450b83d",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 29.0°C with several days expected to be above 25°C, indicating high cooling loads. Given the worst zone excursion is currently at 0.00 K and the previous ceiling of 17.4°C resulted in an average supply air temperature of 12.8°C, which was insufficient for maintaining comfort on a hot day, we should set the ceiling to 15.3°C. This allows for some margin above the forecasted warmest temperatures while ensuring that zones do not overheat.",
+    "supply_air_ceiling": 15.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.07,
+  "cached": false
+}

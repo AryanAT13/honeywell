@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-11T21:40:00",
+  "prompt_hash": "eb6aafe09990b531",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 25.3°C (19.7°C) on June 12th, which is higher than the current core zone temperature of 25.4°C. Given this, it's important to set the supply air ceiling at a level that ensures comfort for all zones without overheating them. Setting the ceiling at 16.0°C will allow the system to maintain comfortable conditions while minimizing reheat energy usage and avoiding overcooling in the worst-case scenario of a warmest forecast day.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.25,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-08T22:40:00",
+  "prompt_hash": "68bb6352ccf7f0f4",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures ranging from -9.6°C to 2.8°C, indicating that the core zones will likely need cooling by mid-afternoon. To ensure comfort and avoid overheating, setting the supply air temperature ceiling at 14.0°C allows for some margin while still being responsive to the forecasted warmest conditions.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.46,
+  "cached": false
+}

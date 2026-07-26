@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-17T21:40:00",
+  "prompt_hash": "c88a35eb8dc043ae",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 18.1°C in the next 24 hours, which is significantly higher than today's outdoor temperature of 10.8°C. Given that the core zone at Mid is already at 24.0°C and the worst excursion is currently only 0.00 K, it indicates that cooling is not a pressing issue yet. However, to prepare for potential overheating in the warmest forecasted period, setting the ceiling slightly higher than today's average of 12.8°C would be prudent. Therefore, I choose a supply air temperature ceiling of 14.3°C.",
+    "supply_air_ceiling": 14.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.16,
+  "cached": false
+}

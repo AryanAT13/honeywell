@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-10T21:40:00",
+  "prompt_hash": "545fc1603ac61b70",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 27.7°C on April 11th, which is significantly higher than today's outdoor temperature of 11.9°C. Given that the core zone at 22.9°C is already uncomfortably hot and considering the forecasted warmth, it would be prudent to set a supply air ceiling slightly below the current 14.0°C to avoid overheating the cores while still allowing for some flexibility in case of unexpected cooling needs. A reasonable choice would be to set the ceiling at 13.5°C.",
+    "supply_air_ceiling": 13.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.17,
+  "cached": false
+}

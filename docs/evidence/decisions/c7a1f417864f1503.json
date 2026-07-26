@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-14T22:40:00",
+  "prompt_hash": "c7a1f417864f1503",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -13°C by the end of the day, which is significantly colder than today's temperature of -4.8°C. Given that the cores are already at 22.1°C and the worst excursion so far has been 4.07 K over 24 hours under a ceiling of 14.5°C, lowering the supply air to 13.0°C will prevent overheating in the core zones without risking excessive cooling or reheating. This approach balances the need for energy efficiency with the risk of discomfort due to extreme cold.",
+    "supply_air_ceiling": 13.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.6,
+  "cached": false
+}

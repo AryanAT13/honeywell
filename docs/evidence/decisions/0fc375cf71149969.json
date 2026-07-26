@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-22T21:40:00",
+  "prompt_hash": "0fc375cf71149969",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures dropping below the current indoor temperature of the core zones (24.2°C). The warmest hour in the forecast is at 18.0°C, which aligns with the worst-case scenario where outdoor conditions are cooler than the interior. To prevent overheating and to ensure that the supply air does not drop too low, causing discomfort or unnecessary reheat, a ceiling of 15.0°C would be appropriate. This allows for some margin in case the forecast is slightly off, but it also ensures that the system can handle the expected cooling load without overcooling.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.12,
+  "cached": false
+}

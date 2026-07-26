@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-29T21:40:00",
+  "prompt_hash": "e3694a9e864b789d",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 27.0°C on May 30th, which is significantly higher than today's outdoor temperature of 19.1°C. Given that the core zones are already at 25.9°C and there is no significant cooling load expected from solar gain or occupancy, it would be prudent to set a ceiling slightly above the current forecast high to avoid overheating during the warmest part of the day. Setting the supply air temperature ceiling at 17.8°C will allow for some margin in case the temperatures rise further and still provide sufficient reheat capacity to keep the core zones comfortable.",
+    "supply_air_ceiling": 17.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.49,
+  "cached": false
+}

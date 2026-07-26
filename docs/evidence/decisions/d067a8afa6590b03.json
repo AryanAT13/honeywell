@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-15T22:40:00",
+  "prompt_hash": "d067a8afa6590b03",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures ranging from -9.8°C to -6.3°C, which is significantly below the current outdoor temperature of -9.8°C. Given that solar gain and occupancy will still push the core zones into cooling by afternoon, it's important to set the ceiling high enough to avoid overcooling during these warmest hours in the forecast. The worst excursion under the previous 13.0°C ceiling was 4.75 K, indicating that the current setup is already quite tight and could lead to overheating if further cooled. Therefore, setting the supply air temperature ceiling at 16.8°C will allow for some margin while still keeping the system from overcooling during the forecasted warmest hours.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.85,
+  "cached": false
+}

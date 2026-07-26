@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-01T00:10:00",
+  "prompt_hash": "c58f8c988dd2ff0c",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below freezing, so to ensure that no zones overheat and to take advantage of the low outdoor temperature, the supply air temperature should be set at the minimum allowable value of 12.8°C.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.17,
+  "cached": false
+}

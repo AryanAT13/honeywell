@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-19T22:40:00",
+  "prompt_hash": "ba4c2132cbad50e0",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below freezing at times. To ensure that zones do not overheat, especially in the core areas which are heavily loaded by lighting and equipment, the supply air temperature should be set to a higher level than the minimum of 12.8°C. Given the warmest zone is currently at 22.3°C and the worst excursion was 3.20 K when the ceiling was 12.8°C, raising the ceiling will help prevent overheating without causing excessive reheat in occupied areas.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.69,
+  "cached": false
+}

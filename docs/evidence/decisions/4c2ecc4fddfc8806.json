@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-26T21:40:00",
+  "prompt_hash": "4c2ecc4fddfc8806",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to 11.1°C on March 27th, which is below the minimum of 12.8°C. To avoid overheating the core zones during this cold period, the supply air temperature should be set at 12.8°C for the next 24 hours.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 4.88,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-20T21:40:00",
+  "prompt_hash": "20353e0933faedcd",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 24.7°C on May 21st, which is significantly higher than today's outdoor temperature of 11.1°C. Given that the core zones are already at 24.5°C and the worst excursion is currently only 0.00 K, it indicates that cooling is not yet necessary. However, to prepare for the upcoming warmest forecast, we should set a ceiling slightly above today's average supply air temperature of 12.9°C while ensuring it does not drop too low as the day progresses and temperatures rise.",
+    "supply_air_ceiling": 13.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.08,
+  "cached": false
+}

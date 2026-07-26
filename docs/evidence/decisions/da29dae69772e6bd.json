@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-30T21:40:00",
+  "prompt_hash": "da29dae69772e6bd",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures ranging from -3.0°C to 4.1°C, with the warmest part of the day expected around 2.1°C at 3 PM. Given that the core zone is already at 20.7°C and there's no significant cooling load indicated by the forecast or current conditions, it would be prudent to set a higher ceiling to avoid unnecessary reheat loads while still ensuring comfort. Setting the supply air temperature ceiling at 15.8°C allows for some margin in case of slight temperature fluctuations without risking overheating the core zones.",
+    "supply_air_ceiling": 15.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.28,
+  "cached": false
+}

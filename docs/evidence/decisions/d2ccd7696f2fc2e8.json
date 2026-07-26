@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-02T22:40:00",
+  "prompt_hash": "d2ccd7696f2fc2e8",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping to -3.7°C by the end of the day, which is significantly below the current outdoor temperature of -1.7°C. Given that the cores are already at 22.0°C and the worst excursion over the previous 24 hours was only 5.82 K (from 16.0°C to 21.82°C), it would be prudent to set a higher ceiling of 18.0°C. This will allow for sufficient reheat in the cores without risking overheating, as the temperature drop forecasted by the end of the day is not expected to cause significant cooling loads.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.33,
+  "cached": false
+}

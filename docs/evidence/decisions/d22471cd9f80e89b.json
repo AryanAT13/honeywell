@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-02T21:40:00",
+  "prompt_hash": "d22471cd9f80e89b",
+  "plan": {
+    "reason": "The forecast predicts a warm afternoon with temperatures reaching up to 25.0°C (23.5°C at 19:00). Given that the interior core zones are already at 25.0°C and will likely continue to heat further, setting the supply air ceiling at 17.3°C would not be sufficient to prevent overheating in these areas. To ensure comfort without overcooling other zones, a higher ceiling of 18.0°C is chosen. This allows for some margin above the forecasted warmest point while still maintaining efficiency by reducing reheat loads.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.04,
+  "cached": false
+}

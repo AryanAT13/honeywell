@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-20T22:40:00",
+  "prompt_hash": "99084fe51271d0ab",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to -8.2°C within the next few hours, indicating a very cold day with significant solar gain and occupancy loads. To prevent overheating of the core zones, it is crucial to set the supply air ceiling at 14.0°C or higher. This will ensure that the system can maintain comfort without overcooling during the anticipated warmest period.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.11,
+  "cached": false
+}

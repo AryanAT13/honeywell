@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-11T22:40:00",
+  "prompt_hash": "a7c2d52b33c361a5",
+  "plan": {
+    "reason": "The forecast predicts a warm day with temperatures peaking at 6.9°C and dropping to -0.4°C, indicating significant temperature swings. The core zone is already at 22.5°C despite the current outdoor air temperature of 3.0°C, suggesting it will need cooling as the day progresses. Given this forecast, a lower ceiling of 14.8°C is chosen to ensure that the supply air remains sufficiently cool throughout the day, avoiding overheating in the core zones while still allowing for some flexibility during the cooler periods.",
+    "supply_air_ceiling": 14.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.08,
+  "cached": false
+}

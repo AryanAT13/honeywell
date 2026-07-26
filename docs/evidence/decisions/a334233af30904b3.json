@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-09T21:40:00",
+  "prompt_hash": "a334233af30904b3",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 23.8°C at 3 PM on June 09, which is significantly warmer than today's outdoor temperature of 20.2°C. Given that the core zone temperatures are already at 25.8°C and the worst excursion is only 1.65 K, it indicates that cooling is not necessary yet. However, to prepare for the upcoming warmest forecasted day, setting a ceiling slightly above today's average of 12.8°C will ensure that the supply air temperature remains sufficiently cool without risking overheating in the core zones during the hottest part of the day.",
+    "supply_air_ceiling": 14.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.88,
+  "cached": false
+}

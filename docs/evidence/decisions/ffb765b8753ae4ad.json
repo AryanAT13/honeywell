@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-09T21:40:00",
+  "prompt_hash": "ffb765b8753ae4ad",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.3°C on July 10th, which is higher than the current indoor core top temperature of 26.4°C. Given this, it's important to set the supply air ceiling at a level that ensures comfort and avoids overheating in the worst-case scenario. Setting the ceiling at 15.8°C will allow for sufficient cooling during the warmest forecasted day while keeping reheat loads manageable and preventing overcooling of zones.",
+    "supply_air_ceiling": 15.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.14,
+  "cached": false
+}

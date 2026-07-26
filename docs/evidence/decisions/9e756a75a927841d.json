@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-20T21:40:00",
+  "prompt_hash": "9e756a75a927841d",
+  "plan": {
+    "reason": "The forecast predicts a drop in temperature to -1.8°C by mid-morning on December 21st, which is significantly colder than today's outdoor temperature of -7.6°C. To ensure that the supply air remains sufficiently warm to avoid overheating during this cold period and to maintain comfort levels for the interior core zones, a ceiling of 13.0°C has been chosen. This setting allows for some margin above the forecasted minimum temperature while still providing adequate heating in case of any unexpected cooling loads.",
+    "supply_air_ceiling": 13.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.67,
+  "cached": false
+}

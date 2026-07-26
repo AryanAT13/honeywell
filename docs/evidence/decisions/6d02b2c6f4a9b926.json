@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-08T21:40:00",
+  "prompt_hash": "6d02b2c6f4a9b926",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor air temperature of 14.5°C on May 09th at 3-hour step. The core zone is currently at 23.7°C, which will likely require cooling as the day progresses. Given the forecast and current conditions, setting the ceiling to 16.8°C allows for some margin while still ensuring that zones do not overcool, especially considering the worst-case scenario of a warmest hour reaching 14.5°C.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 2,
+  "latency_s": 16.02,
+  "cached": false
+}

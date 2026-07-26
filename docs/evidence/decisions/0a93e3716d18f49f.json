@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-15T21:40:00",
+  "prompt_hash": "0a93e3716d18f49f",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 32.1°C in the afternoon, which is significantly higher than today's outdoor temperature of 24.8°C. Given that the worst zone excursion is currently at 0.00 K and no zones are asking for cooling, it is prudent to set the supply air ceiling slightly above the current average of 12.8°C to account for potential overshoots during the day. Setting the ceiling at 17.4°C would allow for some margin but still be within the valid range of 12.8 to 18.0°C.",
+    "supply_air_ceiling": 17.4
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.5,
+  "cached": false
+}

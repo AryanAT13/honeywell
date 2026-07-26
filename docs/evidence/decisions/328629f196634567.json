@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-03T21:40:00",
+  "prompt_hash": "328629f196634567",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below 12.8°C, which would lead to overheating in the core zones due to solar gain and occupant loads. To avoid this, the ceiling should be set at 12.8°C to ensure that even on the coldest forecasted days, the supply air temperature will not drop too low.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.02,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-26T22:40:00",
+  "prompt_hash": "3d96f2e486ab1a79",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -3°C by mid-afternoon. To ensure that zones do not overheat, especially in the core areas which are heavily loaded with lighting and equipment, the supply air temperature should be set at the lower end of the valid range to avoid excessive cooling and reheat loads. Setting the ceiling at 12.8°C will prevent overheating while still allowing for efficient operation during the forecasted cold period.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.22,
+  "cached": false
+}

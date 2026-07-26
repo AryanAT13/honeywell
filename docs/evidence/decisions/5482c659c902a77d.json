@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-10T22:40:00",
+  "prompt_hash": "5482c659c902a77d",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 10.6°C on March 11th, which is significantly lower than today's outdoor temperature of 10.0°C. Given that the core zone mid is at 23.6°C and there are no significant cooling requests from other zones, it indicates that the current supply air temperature (averaging around 12.8°C) is already sufficient to keep the cores comfortable without overcooling. The forecast suggests a return to cooler temperatures on March 11th, which would further reduce the need for reheat in the core areas. Therefore, maintaining the ceiling at 15.0°C will ensure that the supply air remains sufficiently warm to avoid overheating while also allowing for potential cooling if needed without overcooling.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.23,
+  "cached": false
+}

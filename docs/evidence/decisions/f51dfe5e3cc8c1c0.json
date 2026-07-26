@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-18T21:40:00",
+  "prompt_hash": "f51dfe5e3cc8c1c0",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 32.5°C on July 19th, which is the warmest day in the upcoming period. Given this, we set the supply air ceiling at 12.8°C to ensure that the building can handle the cooling load without overheating the interior core zones.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 4.6,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-06T21:40:00",
+  "prompt_hash": "3f7ee79c58ecfe34",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 26.2°C in the next few hours, which is close to the current zone temperatures. Given that the worst excursion over the previous 24-hour period was only 1.92 K with a ceiling at 18.0°C, it indicates that the system can still maintain comfort without overheating zones during this forecasted warm spell.",
+    "supply_air_ceiling": 17.6
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.35,
+  "cached": false
+}

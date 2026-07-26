@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-29T21:40:00",
+  "prompt_hash": "828f80969b334659",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -10°C. To ensure that zones do not overheat, especially given the warmest zone at 21.0°C and the worst excursion of 0 K, setting the supply air temperature ceiling to 12.8°C is appropriate. This will prevent overheating while allowing for some margin in case of slight temperature fluctuations or solar gain.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.56,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-11T22:40:00",
+  "prompt_hash": "62aeb907c909abf2",
+  "plan": {
+    "reason": "The forecast shows a drop in temperature to -6.1°C by midday on January 12, which is significantly colder than today's outdoor temperature of 1.9°C. Given this extreme cold, setting the supply air ceiling at 18.0°C would ensure that the system can handle any cooling load without risking overheating and overcooling issues.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.53,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-23T21:40:00",
+  "prompt_hash": "e5841f9ddfebfcf3",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 5.1°C on March 24th, which is significantly lower than today's 5.8°C. Given that the interior core zones are already at 23.1°C and the worst excursion is only 1.03 K, it indicates that cooling is not a pressing concern even with the forecasted warmest temperatures. The forecast suggests a gradual warming trend, which aligns with the current situation where solar gain and occupancy are pushing the cores into cooling by afternoon. Therefore, lowering the supply air temperature to 14.5°C will allow for better reheat control in the core zones without risking overheating during the anticipated warmest period.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.09,
+  "cached": false
+}

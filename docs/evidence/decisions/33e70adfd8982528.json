@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-22T22:40:00",
+  "prompt_hash": "33e70adfd8982528",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping to -7.1°C at 3 PM, which is well below the current outdoor temperature of -5.2°C. Given that the cores are already at 20.4°C and there's no significant solar gain or occupancy load pushing them into cooling, it would be prudent to set a higher ceiling to avoid unnecessary reheat during the day when temperatures are expected to drop further. Setting the supply air temperature ceiling at 15.0°C will allow for sufficient heating of the core zones without overcooling and wasting energy on reheating. This setting also accounts for the forecasted warmest hours, ensuring comfort even if temperatures rise slightly in the afternoon.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.88,
+  "cached": false
+}

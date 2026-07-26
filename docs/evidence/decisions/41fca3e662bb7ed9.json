@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-04T21:40:00",
+  "prompt_hash": "41fca3e662bb7ed9",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.3°C on June 05, which is higher than the current indoor core top temperature at 26.3°C. Given this, it's important to set the supply air ceiling high enough to prevent overheating in the worst-case scenario. The forecast indicates that temperatures will peak around 18.8°C and then drop to a low of 10.0°C. To account for the warmest part of the day while avoiding overcooling, I choose a ceiling of 17.5°C. This setting allows the system to maintain comfort in the core zones without risking overheating during the forecasted peak temperatures.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.66,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-27T21:40:00",
+  "prompt_hash": "37291ba62003e92d",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 27.9°C on May 28th, which is significantly higher than today's 18.5°C. Given that the core zone at 25.5°C will likely overheat and considering the worst excursion of 0.00 K in the current conditions, it is prudent to set a lower ceiling to avoid overheating. Setting the supply air temperature ceiling at 16.4°C aligns with the forecasted warmest day while ensuring that the core zones are not pushed into cooling mode unnecessarily.",
+    "supply_air_ceiling": 16.4
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.38,
+  "cached": false
+}

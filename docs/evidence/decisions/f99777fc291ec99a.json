@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-12T21:40:00",
+  "prompt_hash": "f99777fc291ec99a",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 30.1°C on July 13, which is significantly higher than today's outdoor temperature of 23.5°C. Given that the core top zone is already at 26.0°C and there are no zones asking for cooling now, it indicates that the current supply air temperature (averaging around 12.8°C) is sufficient to keep the cores comfortable without overcooling them. However, with a forecast of such high temperatures, lowering the ceiling slightly will help prevent overheating in the core top zone and ensure better comfort across all zones by reducing the risk of thermal discomfort due to overheating. Therefore, I choose a supply air temperature ceiling of 17.0°C for the next 24 hours.",
+    "supply_air_ceiling": 17.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.56,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-19T21:40:00",
+  "prompt_hash": "bae3fbec6ed09ac0",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 30.4°C on July 20th, which is significantly higher than today's outdoor temperature and the worst forecasted day in the upcoming period. Given this extreme warmth, it is crucial to set the supply air ceiling at a level that ensures comfort for all zones without overheating. Setting the ceiling at 18.0°C will allow for sufficient cooling while avoiding overcooling, which could lead to discomfort due to excessive reheat loads and potential chilling of occupants.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.26,
+  "cached": false
+}

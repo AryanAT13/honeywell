@@ -1,0 +1,12 @@
+{
+  "time": "2023-04-08T21:40:00",
+  "prompt_hash": "9b485bf6b763c023",
+  "plan": {
+    "reason": "The forecast predicts a drop in outdoor temperature to below 10°C by mid-afternoon, indicating a potential cooling load despite current mild conditions. Given the warmest zone excursion of 2.1 K and no immediate need for cooling, setting the ceiling at 14.5°C allows for some flexibility while avoiding overheating during the forecasted drop in outdoor temperature.",
+    "supply_air_ceiling": 14.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 5.12,
+  "cached": false
+}

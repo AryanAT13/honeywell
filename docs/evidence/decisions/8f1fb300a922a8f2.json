@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-24T21:40:00",
+  "prompt_hash": "8f1fb300a922a8f2",
+  "plan": {
+    "reason": "The forecast predicts a significant drop in temperature starting from -8.3°C, indicating very cold conditions. To ensure that the building does not overheat during these extremely low temperatures, it is best to set the supply air temperature at the lower end of the valid range, which is 12.8°C. This will prevent any risk of overheating in the core zones and maintain comfort while minimizing energy consumption.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.06,
+  "cached": false
+}

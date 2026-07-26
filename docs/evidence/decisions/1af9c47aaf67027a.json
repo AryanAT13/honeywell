@@ -1,0 +1,12 @@
+{
+  "time": "2023-10-14T21:40:00",
+  "prompt_hash": "1af9c47aaf67027a",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 13.4°C on October 15th, which is significantly warmer than today's 1.7°C. Given that the interior core zones are already at 23.0°C and there is no significant cooling load expected from solar gain or occupancy as indicated by the mild current conditions and lack of zone requests for cooling, it would be prudent to set a higher ceiling to avoid overcooling and unnecessary reheat loads. Setting the supply air temperature ceiling at 15.0°C aligns with the forecasted warmest day while still allowing some margin for any unexpected warming or slight increase in core temperatures.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.05,
+  "cached": false
+}

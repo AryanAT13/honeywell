@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-12T22:40:00",
+  "prompt_hash": "a34c5d73b9c5b41d",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures ranging from -5.6 to 3.3 degrees Celsius, indicating that the outdoor conditions will be significantly below the current indoor temperature of 21.0 C in the core zone. Given this extreme cold and considering the need to avoid overcooling which could lead to discomfort or even freezing, a supply air temperature ceiling of **12.8°C** is chosen. This ensures that the zones are not overly cooled, aligning with the requirement to carry away only the necessary cooling load without risking overheating due to extreme outdoor temperatures.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.0,
+  "cached": false
+}

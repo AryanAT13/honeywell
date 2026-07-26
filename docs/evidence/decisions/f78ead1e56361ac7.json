@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-08T21:40:00",
+  "prompt_hash": "f78ead1e56361ac7",
+  "plan": {
+    "reason": "The forecast predicts a warm afternoon with temperatures reaching up to 25.3°C (2023-09-09 at 15:00). Given the worst zone temperature of 25.8°C and considering the forecast, it is prudent to set the supply air ceiling slightly higher than the current average of 12.8°C to account for the warmest part of the day. Setting the ceiling at 16.3°C allows for a buffer against the potential overheating risk while still maintaining comfort in most zones.",
+    "supply_air_ceiling": 16.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.07,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-05T22:40:00",
+  "prompt_hash": "3c0f98ef89e00318",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping below -20°C, which is significantly colder than today's temperature of -17.8°C. Given that the cores are already at 18.2°C and there is no significant cooling load expected due to the forecasted conditions, setting the supply air ceiling at 15.0°C would result in overheating as the zones will struggle to maintain comfort without additional reheat. To avoid this, a higher ceiling of 16.0°C should be set to ensure that the zones can comfortably handle the anticipated cold weather and prevent overcooling.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.33,
+  "cached": false
+}

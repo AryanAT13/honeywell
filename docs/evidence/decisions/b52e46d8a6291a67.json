@@ -1,0 +1,12 @@
+{
+  "time": "2023-09-09T21:40:00",
+  "prompt_hash": "b52e46d8a6291a67",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 26.9°C on September 10th, which is significantly higher than today's outdoor temperature of 16.8°C. Given that the core zone at the top of the building is already at 25.8°C and there are no significant cooling requests from other zones, it is prudent to set a ceiling slightly above the current average supply air temperature (12.8°C) but not too high to avoid overheating during the warmest forecasted period.",
+    "supply_air_ceiling": 17.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.2,
+  "cached": false
+}

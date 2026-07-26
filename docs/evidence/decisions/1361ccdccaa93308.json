@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-23T22:40:00",
+  "prompt_hash": "1361ccdccaa93308",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures dropping to -3.9°C at 3 PM on January 24th, which is significantly below the current outdoor temperature of -3.0°C. Given this extreme cold and considering that the interior core zones are already at 22.1°C, setting the supply air ceiling at 18.0°C would ensure they do not overheat. The forecast also shows a warmest zone excursion of only 3.13 K, which is manageable with a higher ceiling to prevent excessive reheat and energy waste.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.04,
+  "cached": false
+}

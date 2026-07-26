@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-25T21:40:00",
+  "prompt_hash": "d42df9f8808c994e",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 25.7°C in the core top zone, which is significantly above the current indoor conditions (19.2°C). Given that the worst excursion over the previous 24-hour period was only 1.88 K when the ceiling was set at 18.0°C, and considering the forecast's warmest temperatures are expected to be around 25.7°C in the core top zone, it is prudent to lower the supply air temperature ceiling to ensure that zones do not overheat. Setting the ceiling at 16.3°C aligns with the forecasted conditions and will prevent overheating while still allowing for some flexibility as temperatures moderate throughout the day.",
+    "supply_air_ceiling": 16.3
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.28,
+  "cached": false
+}

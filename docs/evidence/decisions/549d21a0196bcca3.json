@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-27T21:40:00",
+  "prompt_hash": "549d21a0196bcca3",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 31.7°C on July 28th, which is significantly higher than today's outdoor temperature of 26.3°C. Given this extreme warmth and considering that the worst excursion over the previous 24 hours was only 2.63 K at a ceiling of 18.0°C, it would be prudent to lower the supply air temperature to ensure comfort for all zones without overheating the core areas. A ceiling of 15.0°C is chosen as this allows for some margin and ensures that even on the warmest forecast day, the supply air will not exceed a comfortable range.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.64,
+  "cached": false
+}

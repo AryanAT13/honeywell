@@ -1,0 +1,12 @@
+{
+  "time": "2023-12-31T21:40:00",
+  "prompt_hash": "d62626d8b0e755da",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 4.2°C at 3 PM on December 31, which is significantly warmer than today's outdoor temperature of -4.2°C. Given that the core zones are already at 19.7°C and there is no significant cooling load expected from solar gain or occupancy, it would be prudent to set a higher ceiling to avoid overcooling during the warmest part of the day. Setting the supply air temperature ceiling at 16.0°C allows for some margin while ensuring that the zones do not overheat.",
+    "supply_air_ceiling": 16.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.1,
+  "cached": false
+}

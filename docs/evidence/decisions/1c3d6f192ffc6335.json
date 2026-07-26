@@ -1,0 +1,12 @@
+{
+  "time": "2023-06-25T21:40:00",
+  "prompt_hash": "1c3d6f192ffc6335",
+  "plan": {
+    "reason": "The forecast predicts a warmest temperature of 31.0 C on June 26th, which is significantly higher than today's outdoor temperature of 17.1 C. Given this extreme forecast and considering that the worst excursion over the previous 24 hours was only 0.00 K (no cooling needed), it is prudent to set a lower ceiling to avoid overheating the core zones. Setting the supply air ceiling at 16.8 C will allow for some margin, ensuring that even on the warmest forecast day, the system can maintain comfort without overcooling.",
+    "supply_air_ceiling": 16.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.23,
+  "cached": false
+}

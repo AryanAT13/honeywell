@@ -1,0 +1,12 @@
+{
+  "time": "2023-07-26T21:40:00",
+  "prompt_hash": "87d3881a83bf1cad",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 33.8°C on July 27th, which is significantly higher than today's 21.9°C. Given that the core zone at 26.2°C is already experiencing discomfort and considering the worst excursion of 2.04 K in the current conditions with a ceiling of 17.5°C, it would be prudent to set the supply air temperature slightly higher to avoid overheating the cores while still allowing for some flexibility given the forecasted warmest temperatures.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.19,
+  "cached": false
+}

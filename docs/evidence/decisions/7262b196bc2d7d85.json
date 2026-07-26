@@ -1,0 +1,12 @@
+{
+  "time": "2023-11-26T21:40:00",
+  "prompt_hash": "7262b196bc2d7d85",
+  "plan": {
+    "reason": "The forecast predicts a cold day with temperatures ranging from -5.8 to -7.5°C over the next 24 hours, which is significantly below the current outdoor temperature of -11.1°C. Given that the cores are already at 18.2°C and there's no significant cooling load expected based on the forecast, it would be prudent to set a higher ceiling to avoid unnecessary reheat loads and potential overheating in the core zones.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 6.68,
+  "cached": false
+}

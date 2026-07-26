@@ -1,0 +1,12 @@
+{
+  "time": "2023-05-21T21:40:00",
+  "prompt_hash": "bda57f3cc9ad9995",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 27.7°C on May 22nd, which is significantly higher than today's outdoor temperature of 15.2°C. Given this extreme warmth and considering that the worst excursion in the current conditions is only 0.00 K (no cooling needed), it would be prudent to set a ceiling at the lower end of the valid range to ensure comfort without overcooling, especially given the forecasted warmest temperatures. Setting the supply air temperature ceiling at 13.5°C aligns with the need for sufficient reheat capacity while avoiding unnecessary energy consumption and overheating in core zones.",
+    "supply_air_ceiling": 13.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.71,
+  "cached": false
+}

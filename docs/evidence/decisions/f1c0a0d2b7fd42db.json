@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-02T21:40:00",
+  "prompt_hash": "f1c0a0d2b7fd42db",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 30.9°C on August 05th, which is the day after tomorrow. Given this, it's prudent to set the supply air temperature ceiling at 18.0°C to avoid overheating the core zones and ensure that the system can respond effectively if needed. The forecast indicates a gradual warming trend starting from today, so maintaining a slightly higher ceiling will help manage any potential heat gain without overcooling.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.83,
+  "cached": false
+}

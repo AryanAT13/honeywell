@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-29T21:40:00",
+  "prompt_hash": "653b4f8b5e8cdd9d",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 31.9°C on August 30th, which is significantly higher than today's 20.4°C. Given that the core zone at 25.9°C is already experiencing cooling and considering the worst excursion of 1.66 K from its normal operating range, it indicates a need to maintain a lower supply air temperature to prevent overheating. The forecast also shows several warm days ahead, which further supports lowering the ceiling to ensure comfort without risking overcooling.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.72,
+  "cached": false
+}

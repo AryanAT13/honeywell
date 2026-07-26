@@ -1,0 +1,12 @@
+{
+  "time": "2023-03-21T21:40:00",
+  "prompt_hash": "d1a680a4e79a71b2",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of -3.2°C at 6:00 AM, indicating a cold day with minimal cooling load. Given this, the interior core zones will not need significant reheat to maintain comfort, and solar gain and occupancy are expected to be mild compared to other days. Therefore, setting the supply air ceiling at 18.0°C allows for optimal energy savings while ensuring that the cores remain comfortable without unnecessary reheating.",
+    "supply_air_ceiling": 18.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 7.28,
+  "cached": false
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-06T21:40:00",
+  "prompt_hash": "69f8ae0d1d7bfefa",
+  "plan": {
+    "reason": "The forecast predicts a warmest outdoor temperature of 22.8°C on August 7th, which is higher than today's outdoor temperature of 12.8°C. Given that the core zone mid is at 26.2°C and there are no significant cooling requests from occupied zones, it would be prudent to set a ceiling slightly above the current forecast low point (12.3°C) to ensure comfort while avoiding overcooling. Setting the supply air temperature ceiling at 15.0°C will allow for some margin in case of slight fluctuations or unexpected heat gain.",
+    "supply_air_ceiling": 15.0
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.26,
+  "cached": false
+}

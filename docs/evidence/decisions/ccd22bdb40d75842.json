@@ -1,0 +1,12 @@
+{
+  "time": "2023-08-23T21:40:00",
+  "prompt_hash": "ccd22bdb40d75842",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 23.3°C on August 24th, which is significantly warmer than today's outdoor temperature of 20.4°C. Given that the core zone at 25.5°C needs cooling and considering the worst excursion was only 1.30 K (from 24.2°C), it indicates that the current ceiling of 18.0°C is sufficient to keep most zones within comfort limits, but with a slight risk of overheating in the core zone. Lowering the ceiling to 17.5°C will help mitigate potential overcooling and ensure better temperature stability across all zones without risking excessive cooling in the core area.",
+    "supply_air_ceiling": 17.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.37,
+  "cached": false
+}

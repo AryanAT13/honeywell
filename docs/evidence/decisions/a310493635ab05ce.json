@@ -1,0 +1,12 @@
+{
+  "time": "2023-02-21T22:40:00",
+  "prompt_hash": "a310493635ab05ce",
+  "plan": {
+    "reason": "The forecast shows a warmest outdoor temperature of 5.3°C on February 22nd, which is significantly warmer than today's 0.9°C. Given that the worst occupied excursion now is 3.08 K and there are no zones asking for cooling under the previous ceiling of 14.0 C over 24 hours, it indicates that the current supply air temperature (averaging 13.2 C) is already sufficient to meet the cooling needs without overheating the core areas. Therefore, maintaining a higher ceiling at around 16.5°C would allow for better reheat savings and prevent zones from needing excessive reheating during warmer days while still ensuring comfort in cooler periods.",
+    "supply_air_ceiling": 16.5
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 8.39,
+  "cached": false
+}

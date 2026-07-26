@@ -1,0 +1,12 @@
+{
+  "time": "2023-01-10T22:40:00",
+  "prompt_hash": "9fb8cd96a0839977",
+  "plan": {
+    "reason": "The forecast shows a warmest temperature of 4.7°C on January 10th at 6 PM, which is significantly warmer than today's outdoor temperature of -4.8°C. Given that the core zones are already at 22.2°C and the worst excursion over the previous 24 hours was 4.55 K (from a low of around 17.7°C to a high of 22.2°C), it is clear that cooling will be needed on this day. To prevent overheating, we should set the supply air ceiling at 12.8°C, which aligns with the forecasted warmest temperature and ensures that the zones do not overcool and risk reheating again.",
+    "supply_air_ceiling": 12.8
+  },
+  "error": null,
+  "attempts": 1,
+  "latency_s": 9.74,
+  "cached": false
+}
