@@ -18,6 +18,7 @@ REGISTERED = (
     "list_runs",
     "run_kpis",
     "run_errors",
+    "run_decisions",
     "telemetry",
     "state_digest",
     "check_policy",
