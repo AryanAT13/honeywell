@@ -172,6 +172,15 @@ def decisions(label: str = typer.Argument("agent")) -> None:
 
 
 @app.command()
+def evidence() -> None:
+    """Regenerate every number the write-up rests on, and the report that shows them."""
+    from . import evidence as ev
+
+    data, report = ev.write()
+    typer.echo(f"wrote {data}\nwrote {report}")
+
+
+@app.command()
 def serve(http: bool = False) -> None:
     """Serve the capability layer over MCP, on stdio by default.
 

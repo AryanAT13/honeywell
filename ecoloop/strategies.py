@@ -200,3 +200,17 @@ class _Window:
             mean_supply_air=self.supply_air_sum / self.samples,
             worst_excursion_k=self.worst_excursion_k,
         )
+
+
+@dataclass
+class ForesightReset(SupplyAirReset):
+    """The bound on anticipation: the same curve, driven by the day's forecast peak.
+
+    This is what a supervisor with perfect discrimination would do with exactly the
+    information the model is given -- the same degraded forecast, no more. It bounds what any
+    amount of cleverness about the day ahead could be worth on this measure.
+    """
+
+    def __call__(self, digest: StateDigest) -> Policy:
+        peak = max([digest.outdoor_temperature, *digest.forecast])
+        return super().__call__(digest.model_copy(update={"outdoor_temperature": peak}))

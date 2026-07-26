@@ -9,6 +9,10 @@ MODELS = ROOT / "models"
 WEATHER = ROOT / "weather"
 RUNS = ROOT / "runs"
 
+# The decision journal from the published runs is committed, so a clean clone reproduces the
+# agent arm exactly without needing a model server.
+DECISIONS = ROOT / "docs" / "evidence" / "decisions"
+
 DEFAULT_MODEL = MODELS / "RefBldgMediumOfficeNew2004_Chicago.idf"
 
 CLIMATES = {

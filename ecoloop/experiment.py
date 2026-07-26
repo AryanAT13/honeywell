@@ -19,7 +19,7 @@ from pydantic import BaseModel
 from . import config, llm, runner
 from .contracts import RunPeriod, RunResult, RunSpec
 from .policy import Band, Policy
-from .strategies import Fixed, PolicyAuthor, Supervised, SupplyAirReset
+from .strategies import Fixed, ForesightReset, PolicyAuthor, Supervised, SupplyAirReset
 
 
 @dataclass(frozen=True)
@@ -47,10 +47,13 @@ ARMS: dict[str, Arm] = {
     ),
     # B2: supervisory supply air reset, thermostats left alone.
     "supervisor": Arm("supervisor", SupplyAirReset()),
+    # B4: the same reset loop given the day's forecast peak instead of the current reading.
+    # Not a controller we would ship; the bound on what anticipation can be worth.
+    "foresight": Arm("foresight", ForesightReset()),
     # B3: a local model sets the daily ceiling; the same reset loop runs beneath it.
     "agent": Arm(
         "agent",
-        Supervised(llm.Planner(cache_dir=config.RUNS / "_llm_cache")),
+        Supervised(llm.Planner(cache_dir=config.DECISIONS)),
     ),
 }
 
