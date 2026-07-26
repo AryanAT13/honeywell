@@ -7,6 +7,7 @@ warmup timesteps and sizing-period environments must be discarded.
 
 from __future__ import annotations
 
+import json
 import shutil
 import time
 from datetime import datetime, timedelta
@@ -47,6 +48,9 @@ REQUIRED_METERS = ("electricity_j",)
 # KindOfSim: 1 = design day, 3 = weather-file run period. Sizing runs must not be recorded.
 WEATHER_RUN_PERIOD = 3
 
+FORECAST_HOURS = 24
+FORECAST_STEP_HOURS = 3
+
 
 class AirSide(NamedTuple):
     """Air loop supply outlet nodes, and the schedules whose values drive them."""
@@ -70,6 +74,9 @@ class _Loop:
         self.guardian: Guardian | None = guardian
         self.comfort = spec.comfort_band
         self.seconds_per_step = spec.timestep_seconds
+        self.forecast_seed = spec.forecast_seed
+        self.forecast_hours = FORECAST_HOURS
+        self.forecast_step = FORECAST_STEP_HOURS
         self.decision_steps = max(
             1, round(spec.decision_interval_minutes * 60 / spec.timestep_seconds)
         )
@@ -144,6 +151,23 @@ class _Loop:
             for zone, (heating, cooling) in self.schedules.items()
         }
 
+    def _forecast(self, state) -> list[float]:
+        """Outdoor temperature ahead, degraded to something a real forecast could deliver."""
+        ex = self.ex
+        hour, day = ex.hour(state), ex.day_of_year(state)
+        ahead = range(self.forecast_step, self.forecast_hours + 1, self.forecast_step)
+        readings = []
+        for hours in ahead:
+            at = hour + hours
+            raw = (
+                ex.today_weather_outdoor_dry_bulb_at_time(state, at, 1)
+                if at < 24
+                else ex.tomorrow_weather_outdoor_dry_bulb_at_time(state, at - 24, 1)
+            )
+            error = digest.forecast_error(self.forecast_seed, day, hour, hours)
+            readings.append(round(raw + error, 1))
+        return readings
+
     def control(self, state) -> None:
         if not self._live(state) or self.author is None:
             return
@@ -164,6 +188,7 @@ class _Loop:
                     effective,
                     self.ex.get_meter_value(state, meter) / self.seconds_per_step / 1000,
                     self.comfort,
+                    self._forecast(state),
                 )
             )
             self.policy = self.guardian.review(proposed) if self.guardian else proposed
@@ -284,8 +309,13 @@ def run(spec: RunSpec, author: PolicyAuthor | None = None, guarded: bool = True)
         kpis=kpi.summarize(telemetry, spec, zones, wall_clock),
         telemetry=telemetry_path,
         severe_errors=report.severe,
-        decisions=loop.decisions,
+        policy_decisions=loop.decisions,
         clamps=dict(guardian.clamps) if guardian else {},
     )
     (out_dir / "kpis.json").write_text(result.kpis.model_dump_json(indent=2))
+    decisions = getattr(author, "decisions", None)
+    if decisions:
+        (out_dir / "decisions.json").write_text(
+            json.dumps([d.model_dump(mode="json") for d in decisions], indent=2)
+        )
     return result

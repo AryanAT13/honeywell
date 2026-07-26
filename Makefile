@@ -1,7 +1,7 @@
 PY := .venv/bin/python
 ECOLOOP := .venv/bin/ecoloop
 
-.PHONY: setup install-eplus info smoke baseline compare serve inspector test lint clean
+.PHONY: setup install-eplus info smoke baseline compare agent serve inspector test lint clean
 
 setup: install-eplus .venv
 
@@ -24,6 +24,9 @@ baseline:
 
 compare:
 	@$(ECOLOOP) compare --arms baseline,deadband,supervisor --period annual
+
+agent:
+	@$(ECOLOOP) compare --arms baseline,supervisor,agent --period annual
 
 serve:
 	@$(ECOLOOP) serve

@@ -16,10 +16,10 @@ from pathlib import Path
 import pandas as pd
 from pydantic import BaseModel
 
-from . import config, runner
+from . import config, llm, runner
 from .contracts import RunPeriod, RunResult, RunSpec
 from .policy import Band, Policy
-from .strategies import Fixed, PolicyAuthor, SupplyAirReset
+from .strategies import Fixed, PolicyAuthor, Supervised, SupplyAirReset
 
 
 @dataclass(frozen=True)
@@ -47,6 +47,11 @@ ARMS: dict[str, Arm] = {
     ),
     # B2: supervisory supply air reset, thermostats left alone.
     "supervisor": Arm("supervisor", SupplyAirReset()),
+    # B3: a local model sets the daily ceiling; the same reset loop runs beneath it.
+    "agent": Arm(
+        "agent",
+        Supervised(llm.Planner(cache_dir=config.RUNS / "_llm_cache")),
+    ),
 }
 
 

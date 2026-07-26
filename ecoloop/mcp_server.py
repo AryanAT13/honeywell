@@ -30,6 +30,7 @@ for capability in (
     tools.list_runs,
     tools.run_kpis,
     tools.run_errors,
+    tools.run_decisions,
     tools.telemetry,
     tools.state_digest,
     tools.check_policy,

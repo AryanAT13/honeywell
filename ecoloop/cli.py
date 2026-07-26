@@ -6,7 +6,7 @@ from pathlib import Path
 
 import typer
 
-from . import config, eplus, experiment, runner
+from . import config, eplus, experiment, runner, tools
 from . import model as model_io
 from .contracts import RunPeriod, RunSpec
 
@@ -124,6 +124,31 @@ def compare(
         f"outside h and K.h are against the fixed {band.lower}-{band.upper} C band"
     )
     typer.echo(f"\nwrote {config.RUNS / 'comparison.json'}")
+
+
+@app.command()
+def decisions(label: str = typer.Argument("agent")) -> None:
+    """Show what the model decided during a run, and what each call cost."""
+    records = tools.run_decisions(label)
+    if not records:
+        typer.echo(f"no recorded decisions for '{label}'")
+        raise typer.Exit(1)
+
+    served = sum(1 for d in records if d.cached)
+    failed = [d for d in records if not d.plan]
+    latencies = sorted(d.latency_s for d in records if not d.cached)
+    typer.echo(
+        f"{len(records)} decisions, {served} from cache, {len(failed)} without a plan, "
+        f"median {latencies[len(latencies) // 2] if latencies else 0:.1f} s"
+    )
+    for record in records:
+        plan = record.plan
+        detail = (
+            f"{plan.supply_air_ceiling:5.1f} C  {plan.reason}"
+            if plan
+            else f"   --   {record.error}"
+        )
+        typer.echo(f"  {record.time:%Y-%m-%d %H:%M}  {detail}")
 
 
 @app.command()
