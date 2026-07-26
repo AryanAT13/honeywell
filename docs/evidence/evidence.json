@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-26T10:50:30.357087",
+  "generated": "2026-07-26T17:47:52.333539",
   "energyplus": "26.1.0",
   "model": "RefBldgMediumOfficeNew2004_Chicago.idf",
   "llm_model": "qwen2.5:3b-instruct",
@@ -22,7 +22,7 @@
             "comfort_exceedance_hours": 506.8333333333333,
             "comfort_degree_hours": 1029.5893220020585,
             "comfort_degree_hours_change": 0.0,
-            "wall_clock_seconds": 18.78
+            "wall_clock_seconds": 20.48
           },
           {
             "label": "deadband",
@@ -34,7 +34,7 @@
             "comfort_exceedance_hours": 4890.5,
             "comfort_degree_hours": 1714.5536108074848,
             "comfort_degree_hours_change": 684.9642888054263,
-            "wall_clock_seconds": 27.31
+            "wall_clock_seconds": 28.83
           },
           {
             "label": "supervisor",
@@ -46,7 +46,7 @@
             "comfort_exceedance_hours": 514.0,
             "comfort_degree_hours": 1036.543308022482,
             "comfort_degree_hours_change": 6.953986020423599,
-            "wall_clock_seconds": 25.49
+            "wall_clock_seconds": 27.61
           },
           {
             "label": "foresight",
@@ -58,7 +58,7 @@
             "comfort_exceedance_hours": 505.66666666666663,
             "comfort_degree_hours": 1014.6494899171199,
             "comfort_degree_hours_change": -14.93983208493853,
-            "wall_clock_seconds": 25.68
+            "wall_clock_seconds": 27.4
           },
           {
             "label": "agent",
@@ -70,7 +70,7 @@
             "comfort_exceedance_hours": 509.0,
             "comfort_degree_hours": 1032.800282251366,
             "comfort_degree_hours_change": 3.210960249307618,
-            "wall_clock_seconds": 25.57
+            "wall_clock_seconds": 27.71
           }
         ]
       }
@@ -93,7 +93,7 @@
             "comfort_exceedance_hours": 9.0,
             "comfort_degree_hours": 22.509464741898018,
             "comfort_degree_hours_change": 0.0,
-            "wall_clock_seconds": 1.7
+            "wall_clock_seconds": 1.75
           },
           {
             "label": "deadband",
@@ -105,7 +105,7 @@
             "comfort_exceedance_hours": 83.0,
             "comfort_degree_hours": 32.28998570400898,
             "comfort_degree_hours_change": 9.780520962110959,
-            "wall_clock_seconds": 1.79
+            "wall_clock_seconds": 1.94
           },
           {
             "label": "supervisor",
@@ -117,7 +117,7 @@
             "comfort_exceedance_hours": 8.666666666666666,
             "comfort_degree_hours": 21.73429435600628,
             "comfort_degree_hours_change": -0.7751703858917374,
-            "wall_clock_seconds": 1.73
+            "wall_clock_seconds": 1.82
           },
           {
             "label": "foresight",
@@ -129,7 +129,7 @@
             "comfort_exceedance_hours": 8.666666666666666,
             "comfort_degree_hours": 21.734432874239012,
             "comfort_degree_hours_change": -0.7750318676590062,
-            "wall_clock_seconds": 1.71
+            "wall_clock_seconds": 1.86
           },
           {
             "label": "agent",
@@ -141,7 +141,7 @@
             "comfort_exceedance_hours": 8.833333333333332,
             "comfort_degree_hours": 22.161204982081394,
             "comfort_degree_hours_change": -0.3482597598166244,
-            "wall_clock_seconds": 1.77
+            "wall_clock_seconds": 1.89
           }
         ]
       }
@@ -164,7 +164,7 @@
             "comfort_exceedance_hours": 10.333333333333332,
             "comfort_degree_hours": 17.237907162643033,
             "comfort_degree_hours_change": 0.0,
-            "wall_clock_seconds": 1.64
+            "wall_clock_seconds": 1.66
           },
           {
             "label": "deadband",
@@ -176,7 +176,7 @@
             "comfort_exceedance_hours": 100.0,
             "comfort_degree_hours": 32.229947804201615,
             "comfort_degree_hours_change": 14.992040641558582,
-            "wall_clock_seconds": 1.76
+            "wall_clock_seconds": 1.81
           },
           {
             "label": "supervisor",
@@ -188,7 +188,7 @@
             "comfort_exceedance_hours": 10.333333333333332,
             "comfort_degree_hours": 17.43875773862902,
             "comfort_degree_hours_change": 0.2008505759859851,
-            "wall_clock_seconds": 1.73
+            "wall_clock_seconds": 1.76
           },
           {
             "label": "foresight",
@@ -200,7 +200,7 @@
             "comfort_exceedance_hours": 10.333333333333332,
             "comfort_degree_hours": 17.421069859800475,
             "comfort_degree_hours_change": 0.18316269715744227,
-            "wall_clock_seconds": 1.71
+            "wall_clock_seconds": 1.77
           },
           {
             "label": "agent",
@@ -212,7 +212,7 @@
             "comfort_exceedance_hours": 10.333333333333332,
             "comfort_degree_hours": 17.255506327088177,
             "comfort_degree_hours_change": 0.01759916444514431,
-            "wall_clock_seconds": 1.7
+            "wall_clock_seconds": 1.8
           }
         ]
       }
@@ -235,7 +235,7 @@
             "comfort_exceedance_hours": 10.833333333333332,
             "comfort_degree_hours": 25.68442792402695,
             "comfort_degree_hours_change": 0.0,
-            "wall_clock_seconds": 1.69
+            "wall_clock_seconds": 2.01
           },
           {
             "label": "deadband",
@@ -247,7 +247,7 @@
             "comfort_exceedance_hours": 99.16666666666666,
             "comfort_degree_hours": 32.062415092165374,
             "comfort_degree_hours_change": 6.377987168138425,
-            "wall_clock_seconds": 1.82
+            "wall_clock_seconds": 2.1
           },
           {
             "label": "supervisor",
@@ -259,7 +259,7 @@
             "comfort_exceedance_hours": 10.833333333333332,
             "comfort_degree_hours": 25.683470062765565,
             "comfort_degree_hours_change": -0.0009578612613836412,
-            "wall_clock_seconds": 1.88
+            "wall_clock_seconds": 2.06
           },
           {
             "label": "foresight",
@@ -271,7 +271,7 @@
             "comfort_exceedance_hours": 10.833333333333332,
             "comfort_degree_hours": 25.68442792402695,
             "comfort_degree_hours_change": 0.0,
-            "wall_clock_seconds": 1.83
+            "wall_clock_seconds": 2.05
           },
           {
             "label": "agent",
@@ -283,7 +283,7 @@
             "comfort_exceedance_hours": 10.833333333333332,
             "comfort_degree_hours": 25.683470062765565,
             "comfort_degree_hours_change": -0.0009578612613836412,
-            "wall_clock_seconds": 1.82
+            "wall_clock_seconds": 2.1
           }
         ]
       }
@@ -306,7 +306,7 @@
             "comfort_exceedance_hours": 910.5,
             "comfort_degree_hours": 1179.3907604096196,
             "comfort_degree_hours_change": 0.0,
-            "wall_clock_seconds": 17.21
+            "wall_clock_seconds": 18.83
           },
           {
             "label": "supervisor",
@@ -318,7 +318,7 @@
             "comfort_exceedance_hours": 925.1666666666666,
             "comfort_degree_hours": 1201.2012490515456,
             "comfort_degree_hours_change": 21.810488641925986,
-            "wall_clock_seconds": 22.33
+            "wall_clock_seconds": 25.47
           }
         ]
       }
@@ -339,7 +339,7 @@
         "label": "baseline",
         "timesteps": 52560,
         "simulated_hours": 8760.0,
-        "wall_clock_seconds": 14.34,
+        "wall_clock_seconds": 14.08,
         "electricity_kwh": 767959.1113533594,
         "hvac_electricity_kwh": 238621.5562502796,
         "gas_kwh": 60361.25860002904,
@@ -392,7 +392,7 @@
         "label": "baseline",
         "timesteps": 52560,
         "simulated_hours": 8760.0,
-        "wall_clock_seconds": 9.13,
+        "wall_clock_seconds": 9.38,
         "electricity_kwh": 65697.73001751964,
         "hvac_electricity_kwh": 15531.25572540521,
         "gas_kwh": 22408.804003672176,
@@ -445,7 +445,7 @@
         "label": "baseline",
         "timesteps": 52560,
         "simulated_hours": 8760.0,
-        "wall_clock_seconds": 16.64,
+        "wall_clock_seconds": 20.08,
         "electricity_kwh": 818594.7095345369,
         "hvac_electricity_kwh": 289207.8077647906,
         "gas_kwh": 10034.511100756094,
