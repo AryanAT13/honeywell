@@ -17,7 +17,7 @@ from pathlib import Path
 import pandas as pd
 from pydantic import BaseModel
 
-from . import config, digest, errors, experiment, llm, runner
+from . import commissioning, config, digest, errors, experiment, llm, runner
 from . import model as model_io
 from .contracts import ComfortBand, KpiSummary, RunPeriod, RunSpec
 from .control import Setpoints, ZoneObservation
@@ -124,6 +124,15 @@ def inspect_model(model: str) -> ControlSurface:
         air_loops=sorted(building.get("AirLoopHVAC", {})),
         supply_air_schedules=model_io.supply_air_schedules(building),
     )
+
+
+def commission_model(model: str, weather: str = "chicago") -> commissioning.Commissioning:
+    """Survey an unfamiliar building and report which measures earn their place on it.
+
+    Each candidate is tried against the untouched baseline, because a measure can be
+    actuable, aimed at the dominant load, and still make the building worse.
+    """
+    return commissioning.commission(_model_path(model), _weather_path(weather))
 
 
 def list_runs_labels() -> list[str]:

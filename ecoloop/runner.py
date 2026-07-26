@@ -20,7 +20,13 @@ from . import digest, eplus, errors, kpi
 from . import model as model_io
 from . import policy as policy_module
 from .contracts import NOMINAL_YEAR, RunResult, RunSpec
-from .control import SetpointActuators, Setpoints, SupplyAirActuators, ZoneObservation
+from .control import (
+    AvailabilityActuators,
+    SetpointActuators,
+    Setpoints,
+    SupplyAirActuators,
+    ZoneObservation,
+)
 from .policy import Guardian, Policy
 from .strategies import PolicyAuthor
 
@@ -42,6 +48,12 @@ METERS = {
     "electricity_j": ("Electricity:Facility", "ElectricityNet:Facility"),
     "hvac_electricity_j": ("Electricity:HVAC",),
     "gas_j": ("NaturalGas:Facility",),
+    # End uses, for deciding which measure is worth deploying on an unfamiliar building.
+    "heating_j": ("Heating:Electricity",),
+    "cooling_j": ("Cooling:Electricity",),
+    "fans_j": ("Fans:Electricity",),
+    "lights_j": ("InteriorLights:Electricity",),
+    "equipment_j": ("InteriorEquipment:Electricity",),
 }
 REQUIRED_METERS = ("electricity_j",)
 
@@ -57,6 +69,7 @@ class AirSide(NamedTuple):
 
     nodes: list[str]
     schedules: list[str]
+    availability: list[str]
 
 
 class _Loop:
@@ -82,6 +95,7 @@ class _Loop:
         )
         self.setpoints = SetpointActuators(exchange, sorted(schedules)) if author else None
         self.supply_air = SupplyAirActuators(exchange, air.schedules) if author else None
+        self.availability = AvailabilityActuators(exchange, air.availability) if author else None
         self.rows: list[dict] = []
         self.handles: dict[str, int] = {}
         self.commanded: dict[str, Setpoints | None] = {}
@@ -121,6 +135,7 @@ class _Loop:
         if self.setpoints:
             self.setpoints.resolve(state)
             self.supply_air.resolve(state)
+            self.availability.resolve(state)
 
     def _live(self, state) -> bool:
         ex = self.ex
@@ -198,6 +213,8 @@ class _Loop:
 
         if self.policy.supply_air_temperature is not None:
             self.supply_air.write(state, self.policy.supply_air_temperature)
+        if self.policy.hvac_available is not None:
+            self.availability.write(state, self.policy.hvac_available)
 
         for zone, observation in observations.items():
             command = policy_module.apply(self.policy, observation)
@@ -264,6 +281,7 @@ def run(spec: RunSpec, author: PolicyAuthor | None = None, guarded: bool = True)
     air = AirSide(
         nodes=model_io.air_loop_supply_nodes(building),
         schedules=model_io.supply_air_schedules(building),
+        availability=model_io.hvac_availability_schedules(building),
     )
     if not zones:
         raise ValueError(f"{spec.model} has no thermostatically controlled zones")

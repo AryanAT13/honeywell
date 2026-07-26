@@ -15,6 +15,7 @@ REGISTERED = (
     "list_models",
     "list_climates",
     "inspect_model",
+    "commission_model",
     "list_runs",
     "run_kpis",
     "run_errors",

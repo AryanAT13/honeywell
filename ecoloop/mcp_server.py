@@ -27,6 +27,7 @@ for capability in (
     tools.list_models,
     tools.list_climates,
     tools.inspect_model,
+    tools.commission_model,
     tools.list_runs,
     tools.run_kpis,
     tools.run_errors,

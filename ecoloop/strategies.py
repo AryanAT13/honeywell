@@ -89,6 +89,45 @@ class SupplyAirReset:
 
 
 @dataclass
+class AvailabilityTrim:
+    """Stops the air system when the building is empty and inside its setback band.
+
+    The stock schedule runs fans from 06:00 to 22:00 on weekdays whatever the occupancy, and
+    in a packaged single-zone building fans are the largest HVAC load. The night cycle
+    manager already brings the system back on when a zone drifts, so releasing the schedule
+    while the building is empty and comfortable costs nothing and stops the fans.
+    """
+
+    def __call__(self, digest: StateDigest) -> Policy:
+        occupied = any(zone.occupied for zone in digest.zones)
+        drifting = any(zone.cooling_request or zone.heating_request for zone in digest.zones)
+        available = occupied or drifting
+        return Policy(
+            hvac_available=available,
+            reason="occupied" if occupied else ("zones drifting" if drifting else "empty and idle"),
+        )
+
+
+@dataclass
+class Combined:
+    """Several measures on one building. They write disjoint fields of the same policy."""
+
+    authors: list[PolicyAuthor]
+
+    def __call__(self, digest: StateDigest) -> Policy:
+        merged: dict = {}
+        reasons = []
+        for author in self.authors:
+            policy = author(digest)
+            merged.update(
+                {k: v for k, v in policy.model_dump().items() if v is not None and k != "reason"}
+            )
+            if policy.reason:
+                reasons.append(policy.reason)
+        return Policy(**merged, reason="; ".join(reasons))
+
+
+@dataclass
 class Supervised:
     """A local model sets the daily supply air ambition; the reset loop still runs beneath it.
 

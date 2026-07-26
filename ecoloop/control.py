@@ -82,3 +82,25 @@ class SupplyAirActuators:
     def write(self, state, temperature: float) -> None:
         for handle in self.handles.values():
             self.ex.set_actuator_value(state, handle, temperature)
+
+
+class AvailabilityActuators:
+    """Gates the air system by overriding the schedules its fans run on."""
+
+    def __init__(self, exchange, schedules: list[str]):
+        self.ex = exchange
+        self.schedules = schedules
+        self.handles: dict[str, int] = {}
+
+    def resolve(self, state) -> None:
+        for schedule in self.schedules:
+            handle = self.ex.get_actuator_handle(
+                state, "Schedule:Compact", "Schedule Value", schedule
+            )
+            if handle < 0:
+                raise RuntimeError(f"no schedule actuator for {schedule}")
+            self.handles[schedule] = handle
+
+    def write(self, state, available: bool) -> None:
+        for handle in self.handles.values():
+            self.ex.set_actuator_value(state, handle, 1.0 if available else 0.0)

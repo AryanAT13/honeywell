@@ -127,6 +127,26 @@ def compare(
 
 
 @app.command()
+def commission(model: Path = config.DEFAULT_MODEL) -> None:
+    """Survey a building and report which measures earn their place on it."""
+    from . import commissioning as cm
+
+    plan = cm.commission(model)
+    typer.echo(
+        f"\n{plan.model}  {plan.conditioned_zones} conditioned zones  "
+        f"{plan.baseline.electricity_kwh:,.0f} kWh/yr\n"
+    )
+    typer.echo("  " + "  ".join(f"{k} {v:.1%}" for k, v in plan.end_uses.items()))
+    typer.echo("")
+    for fit in plan.fits:
+        typer.echo(f"  [{'x' if fit.selected else ' '}] {fit.measure:20s}{fit.reason}")
+    try:
+        typer.echo(f"\ndeploys {type(cm.author_for(plan)).__name__}")
+    except cm.NothingApplies:
+        typer.echo("\ndeploys nothing; no measure in the catalogue earns its place here")
+
+
+@app.command()
 def decisions(label: str = typer.Argument("agent")) -> None:
     """Show what the model decided during a run, and what each call cost."""
     records = tools.run_decisions(label)
