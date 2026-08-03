@@ -1,6 +1,6 @@
-# Eco-Loop
+# EcoLoop
 
-A self-commissioning supervisory controller for building HVAC, closing the loop against a
+A self commissioning supervisory controller for building HVAC, closing the loop against a
 live EnergyPlus instance through its runtime API.
 
 Point it at a building model. It discovers what can be actuated, measures where the energy
